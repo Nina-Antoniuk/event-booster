@@ -1,0 +1,35 @@
+.title-logo::before {
+    // @media screen and (min-width: 768px) {
+    //   content: '';
+    //   position: absolute;
+    //   z-index: -1;
+    //   width: 196px;
+    //   height: 200px;
+    //   background-size: cover;
+    //   background-repeat: no-repeat;
+    //   transform: rotate(69.49deg);
+    //   background-image: url(../images/registration/tablet/donut.png);
+    //   top: 34px;
+    //   left: -50px;
+    // }
+  
+    // @media screen and (min-device-pixel-ratio: 2),
+    //   screen and (-webkit-min-device-pixel-ratio: 2),
+    //   screen and (-o-min-device-pixel-ratio: 2/1),
+    //   screen and (min-resolution: 192dpi),
+    //   screen and (min-resolution: 2dppx) {
+    //   background-image: url(../images/registration/tablet/donut@2x.png);
+    // }
+  
+    @media screen and (min-width: 1280px) {
+      background-image: url(../images/header/desktop/logo.png);
+    }
+  
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/header/desktop/logo@2x.png);
+    }
+  }
