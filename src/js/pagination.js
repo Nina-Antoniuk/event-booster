@@ -2,8 +2,8 @@ export default class Pagination {
   constructor({
     container = '.pagination',
     page = 1,
-    pages = 11,
-    keyword = 'abba',
+    pages = 20,
+    keyword = '',
     country = '',
     hidden = false,
   } = {}) {
@@ -66,7 +66,7 @@ export default class Pagination {
   }
 }
 
-const pager = new Pagination();
+const pager = new Pagination({ page: 11, keyword: 'abba' });
 
 // Скинуть счетчик на первую страницу
 pager.goStart();
