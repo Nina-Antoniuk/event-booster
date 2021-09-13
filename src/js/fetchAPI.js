@@ -9,5 +9,6 @@ export default function fetchAPI () {
         throw new Error('Oops, something went wrong')
         }).then(data => console.log(data._embedded.events))
         .catch(error => console.log('Error:',error))
+        
     }
     
