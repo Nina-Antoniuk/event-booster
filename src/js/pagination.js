@@ -25,13 +25,13 @@ export default class Pagination {
     this.container.addEventListener('click', this.click.bind(this));
   }
 
-  render(pages = this.totalPages - 1) {
+  render(pages = this.totalPages) {
     let links = ``;
 
-    for (let page = 1; page < pages; page += 1) {
+    for (let page = 0; page < pages; page += 1) {
       links += `<a class="pagination__link ${
-        page === 1 ? 'pagination__link--active' : ''
-      }" href="#">${page}</a>`;
+        page === 0 ? 'pagination__link--active' : ''
+      }" href="#">${page + 1}</a>`;
     }
 
     this.container.innerHTML = links;
@@ -68,16 +68,20 @@ export default class Pagination {
   }
 
   async getEventsByPagination(pageNumber = this.currentPage) {
-    const url = `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${this.querySearch}&countryCode=${this.queryCountry}&page=${pageNumber}&apikey=QVx83fRMIRoVdGVGRMnXNMc8Ghr9B1Dr`;
+    const url = `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${
+      this.querySearch
+    }&countryCode=${this.queryCountry}&page=${
+      pageNumber - 1
+    }&apikey=QVx83fRMIRoVdGVGRMnXNMc8Ghr9B1Dr`;
 
     try {
       const data = await fetch(url);
       const response = await data.json();
 
       const pages = response.page.totalPages;
-      this.totalPages = pages - 1;
+      this.totalPages = pages;
 
-      // console.log(response._embedded.events);
+      console.log(response._embedded.events);
       return response._embedded.events;
     } catch (error) {
       console.log(error);
@@ -86,6 +90,7 @@ export default class Pagination {
 }
 
 const pager = new Pagination({ pages: 12, keyword: 'abba' });
+
 pager.render(12);
 
 // Скинуть счетчик на первую страницу
