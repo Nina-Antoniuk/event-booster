@@ -10,7 +10,5 @@ fetch('https://raw.githubusercontent.com/russ666/all-countries-and-cities-json/m
 
         countryOption.innerHTML = key;
         countrySelect.appendChild(countryOption);
-
-
     }
 })
