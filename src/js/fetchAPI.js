@@ -1,5 +1,5 @@
 
-export default function fetchAPI () {
+export default function fetchApi () {
     const API_KEY = 'Iks6oDIpGdxCIBqWeGHShYrO2fcgxZEd';
     const BASE_URL = 'https://app.ticketmaster.com/discovery/v2'
     

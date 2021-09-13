@@ -1,5 +1,5 @@
 import './sass/main.scss';
-import fetchAPI from './js/fetchAPI'
+import fetchApi from './js/fetchApi'
 import markup from './templates/gallery-markup.hbs'
 
 window.addEventListener('DOMContentLoaded', onPageLoad)
@@ -9,19 +9,18 @@ function onPageLoad () {
  }
 
 
-//  const y = fetchAPI()
-// const list = document.querySelector('.gallery')
-
-// const x = y.map(markup).join('');
-// list.insertAdjacentHTML('beforeend', x);
-
-
 const list = document.querySelector('.gallery')
 
- fetchAPI().then(searchResults)
+const renderCard = fetchApi().map(markup).join('');
+list.insertAdjacentHTML('beforeend', renderCard);
 
-function searchResults(data) {
 
-list.insertAdjacentHTML('beforeend', markup(data))
+// const list = document.querySelector('.gallery')
+
+//  fetchApi().then(searchResults).then(console.log)
+
+// function searchResults(data) {
+
+// list.insertAdjacentHTML('beforeend', markup(data))
  
-}
+// }
