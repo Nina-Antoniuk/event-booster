@@ -1,1 +1,1 @@
-const API_KEY = 'Iks6oDIpGdxCIBqWeGHShYrO2fcgxZEd';
+export default API_KEY = 'Iks6oDIpGdxCIBqWeGHShYrO2fcgxZEd';
