@@ -139,6 +139,7 @@
 }
 
 .input {
+  position: relative;
   margin: 25px 0px;
   justify-content: center;
   align-items: center;
@@ -154,6 +155,7 @@
 }
 
 .input-search {
+  
   margin-left: auto;
   margin-right: auto;
   padding-left: 30px;
@@ -161,13 +163,23 @@
   height: 40px;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
 
   font-size: 16px;
   line-height: 20px;
-
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
   color: #939393;
+  backdrop-filter: blur(20px);
 
+  outline: none;
+  appearance: none;
+}
+
+.input-icon {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  right: 30px;
+  top: 15px;
+  transition: fill .1s linear;
 }
