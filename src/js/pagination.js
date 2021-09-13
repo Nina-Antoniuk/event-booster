@@ -22,16 +22,15 @@ export default class Pagination {
   }
 
   render(pages = this.totalPages - 1) {
-    let ren = ``;
+    let links = ``;
 
     for (let page = 1; page < pages; page += 1) {
-      ren +=
-        page === 1
-          ? `<a class="pagination__link pagination__link--active" href="#">${page}</a>`
-          : `<a class="pagination__link" href="#">${page}</a>`;
+      links += `<a class="pagination__link ${
+        page === 1 ? 'pagination__link--active' : ''
+      }" href="#">${page}</a>`;
     }
 
-    this.container.innerHTML = ren;
+    this.container.innerHTML = links;
   }
 
   goStart() {
