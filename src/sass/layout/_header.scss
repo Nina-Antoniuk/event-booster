@@ -1,0 +1,173 @@
+.header {
+  width: 100%;
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../images/header/mobile/pic.png);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/header/mobile/pic@2px.png);
+  }
+
+  @media screen and (min-width: 768px) {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/header/tablet/pic.png);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/header/tablet/pic@2px.png);
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(../images/header/desktop/pic.png);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/header/desktop/pic@2px.png);
+    }
+  }
+}
+
+.title-form {
+  padding-top: 80px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+  }
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 212px;
+  height: 44px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+
+  color: #DC56C5;
+
+  @media screen and (min-width: 768px) {
+    width: 353px;
+    height: 74px;
+    font-size: 30px;
+    line-height: 37px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 600px;
+    height: 125px;
+    font-size: 50px;
+    line-height: 61px;
+  }
+}
+
+.header-logo::before {
+  content: '';
+  position: absolute;
+  width: 105px;
+  height: 90px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../images/header/mobile/logo.png);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/header/mobile/logo@2px.png);
+  }
+
+    @media screen and (min-width: 768px) {
+      width: 180px;
+      height: 150px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url(../images/header/tablet/logo.png);
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+      @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/header/tablet/logo@2px.png);
+    }
+    }
+  
+    @media screen and (min-width: 1280px) {
+      background-image: url(../images/header/desktop/logo.png);
+
+      @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/header/desktop/logo@2px.png);
+    }
+    }
+  }
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: inherit;
+  }
+}
+
+.input {
+  margin: 25px 0px;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 30px;
+  }
+  
+}
+
+.input:last-child {
+  margin: 0;
+}
+
+.input-search {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  width: 270px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #939393;
+
+}
