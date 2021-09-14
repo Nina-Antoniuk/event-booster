@@ -25,12 +25,14 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  background-color: black;
+  background-color: var(--main-text-color);
+  padding: 0;
 }
 .heart-icon {
   color: #d40000;
   padding-left: 6px;
   padding-right: 5px;
+  padding-bottom: 0;
   font-size: 25px;
 
   animation: animateScale 1700ms infinite cubic-bezier(0.4, 0, 0.2, 1);
