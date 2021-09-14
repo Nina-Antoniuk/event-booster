@@ -1,4 +1,4 @@
-import './sass/main.scss';
+ import './sass/main.scss';
 import fetchAPI from './js/fetchAPI'
 import markup from './templates/gallery-markup.hbs'
 
