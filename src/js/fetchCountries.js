@@ -1,4 +1,5 @@
-fetch('https://raw.githubusercontent.com/russ666/all-countries-and-cities-json/master/countries.json')
+// fetch('https://raw.githubusercontent.com/russ666/all-countries-and-cities-json/master/countries.json')
+fetch('../json/countries.json')
 .then(res => res.json())
 .then(json => {
 
@@ -8,7 +9,7 @@ fetch('https://raw.githubusercontent.com/russ666/all-countries-and-cities-json/m
         let countryOption = document.createElement('option');
         let countrySelect = document.getElementById('countrySelect');
 
-        countryOption.innerHTML = key;
+        countryOption.innerHTML = key.name;
         countrySelect.appendChild(countryOption);
     }
 })
