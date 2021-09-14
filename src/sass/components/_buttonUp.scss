@@ -1,0 +1,27 @@
+.headerTemp {
+  color: wheat;
+  height: 200px;
+  outline: 1px solid white;
+}
+.section1Temp {
+  color: wheat;
+  height: 1800px;
+  outline: 1px solid white;
+}
+
+.buttonUp {
+  width: auto;
+  height: 40px;
+  position: fixed;
+  left: 10px;
+  bottom: 20px;
+  background-color: var(--bg-input);
+  color: var(--light-text-color);
+  border: none;
+  border-radius: 0px 10px 0px 10px;
+  display: none;
+}
+
+.buttonUp.isActive {
+  display: block;
+}
