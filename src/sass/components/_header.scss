@@ -49,21 +49,17 @@
 }
 
 .title {
-  margin: 0;
-  padding: 0;
   margin-left: auto;
   margin-right: auto;
   width: 212px;
   height: 44px;
 
-  font-family: Montserrat;
-  font-style: normal;
   font-weight: 900;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
 
-  color: #DC56C5;
+  color: var(--accent-text-color);
 
   @media screen and (min-width: 768px) {
     width: 353px;
@@ -155,7 +151,6 @@
 }
 
 .input-search {
-  
   margin-left: auto;
   margin-right: auto;
   padding-left: 30px;
@@ -167,8 +162,8 @@
   font-size: 16px;
   line-height: 20px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  color: #939393;
+  background: var(--bg-input);
+  color: var(--blurry-text-color);
   backdrop-filter: blur(20px);
 
   border: 0;
