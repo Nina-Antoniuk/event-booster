@@ -1,4 +1,4 @@
-.form-auth.is-open {
+.auth.is-open {
     display: block;
     position: fixed;
     width: 450px;
@@ -7,11 +7,14 @@
     left: calc((100% - 450px) / 2);
     background-color: var(--blurry-text-color);
 }
-.form-auth {
+.auth {
+    display: none;
+}
+.signIn{
     display: none;
 }
 
-.form-singIn {
+.signIn.is-open {
     position: fixed;
     width: 450px;
     height: 300px;
