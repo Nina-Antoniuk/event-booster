@@ -21,7 +21,7 @@ function authFormSubmit(e) {
 
     e.target.querySelector('.email').value = ''
     e.target.querySelector('.password').value = ''
-    alert('регистр успешна')
+    console.log('ok')
     form.classList.toggle('is-open')
 
 }
@@ -37,7 +37,7 @@ function authWithEmailAndPassword(email, password){
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(r => r.json)
+    }).then(r => r.json())
 }
 
 function onSignInBtnClick(){
