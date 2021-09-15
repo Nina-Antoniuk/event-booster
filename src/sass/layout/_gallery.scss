@@ -1,3 +1,26 @@
-.card__content-item {
-  color: #fff;
+.gallery__meta_name,
+.gallery__meta_date,
+.gallery__meta_place {
+  color: var(--light-text-color);
+}
+
+.contacts__icon--mail {
+  width: 16px;
+  height: 12px;
+  margin-right: 10px;
+  fill: currentColor;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.gallery__image {
+  width: 180px;
+  height: 227px;
+  overflow: hidden;
+  object-fit: cover;
 }

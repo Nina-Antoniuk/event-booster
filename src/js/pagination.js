@@ -1,10 +1,10 @@
 export default class Pagination {
   constructor({
-    container = '.pagination',
+    container = ".pagination",
     page = 1,
     pages = 20,
-    keyword = '',
-    country = '',
+    keyword = "",
+    country = "",
     hidden = false,
   } = {}) {
     this.container = document.querySelector(container);
@@ -19,7 +19,7 @@ export default class Pagination {
 
   // Метод для скрытия пагинации
   hide() {
-    this.container.classList.add('is-hidden');
+    this.container.classList.add("is-hidden");
   }
 
   // Метод для сздания элементов пагинации
@@ -31,7 +31,7 @@ export default class Pagination {
     // Создаем нужное количество элементов пагинации
     for (let page = 0; page < pages; page += 1) {
       links += `<a class="pagination__link ${
-        page === 0 ? 'pagination__link--active' : ''
+        page === 0 ? "pagination__link--active" : ""
       }" href="#">${page + 1}</a>`;
     }
 
@@ -45,17 +45,17 @@ export default class Pagination {
 
   // Метод для добавления обработчика события с привязанным контексом
   bindEvents() {
-    this.container.addEventListener('click', this.click.bind(this));
+    this.container.addEventListener("click", this.click.bind(this));
   }
 
   // Метод для клика на ссылку
   click(event) {
     event.preventDefault();
     const target = event.target;
-    const activeClass = 'pagination__link--active';
+    const activeClass = "pagination__link--active";
 
     // Проверяем нажатия по ссылке
-    if (target.nodeName !== 'A' || target.classList.contains(activeClass)) {
+    if (target.nodeName !== "A" || target.classList.contains(activeClass)) {
       return;
     }
 
@@ -117,7 +117,7 @@ export default class Pagination {
 }
 
 // Делам экземпляр класса
-const pager = new Pagination({ pages: 12, keyword: 'abba' });
+const pager = new Pagination({ pages: 12, keyword: "abba" });
 
 // Вызываем метод для создания 11 элементов пагинации
 pager.render(12);
