@@ -1,9 +1,15 @@
-@import './base/common';
+@import "./layout/section-pagination";
+@import "./layout/gallery";
+@import "./layout/header";
 
-@import './layout/section-pagination';
-@import './layout/gallery';
+// utils
+@import "./utils/variables";
 
-@import './base/container';
+// base
+@import "./base/common";
+@import "./base/container";
 
-@import './components/pagination';
-@import './utils/variables';
+// components
+@import "./components/pagination";
+@import "./components/footer";
+@import "./components/buttonUp";
