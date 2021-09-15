@@ -1,25 +1,25 @@
 .headerTemp {
-  color: wheat;
   height: 200px;
   outline: 1px solid white;
+  color: wheat;
 }
 .section1Temp {
-  color: wheat;
   height: 1800px;
   outline: 1px solid white;
+  color: wheat;
 }
 
 .buttonUp {
   position: fixed;
   right: -75px;
   bottom: 20px;
+  // display: none;
   width: auto;
   height: 40px;
-  background-color: var(--bg-input);
-  color: var(--light-text-color);
   border: none;
   border-radius: 0px 10px 0px 10px;
-  // display: none;
+  color: var(--light-text-color);
+  background-color: var(--bg-input);
   transition: transform 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 

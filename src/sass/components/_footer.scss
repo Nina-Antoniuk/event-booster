@@ -1,11 +1,11 @@
 .footer-section {
   position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  bottom: 20px;
-  left: 0;
-  right: 0;
   color: var(--blurry-text-color);
 
   @media screen and (max-width: 767px) {
@@ -34,7 +34,35 @@
   padding-bottom: 0;
   font-size: 25px;
   color: #d40000;
-  animation: animateScale 1700ms infinite cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-animation: animateScale 1700ms infinite cubic-bezier(0.4, 0, 0.2, 1);
+          animation: animateScale 1700ms infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-section:hover,
+.footer-section:focus {
+  color: var(--light-text-color);
+  & .heart-icon {
+    -webkit-animation: animateScale 500ms infinite cubic-bezier(0.4, 0, 0.2, 1);
+            animation: animateScale 500ms infinite cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+.developers {
+  padding-left: 4px;
+}
+
+@-webkit-keyframes animateScale {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+    color: red;
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes animateScale {
@@ -50,15 +78,4 @@
   100% {
     transform: scale(1);
   }
-}
-
-.footer-section:hover,
-.footer-section:focus {
-  color: var(--light-text-color);
-  & .heart-icon {
-    animation: animateScale 500ms infinite cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-.developers {
-  padding-left: 4px;
 }
