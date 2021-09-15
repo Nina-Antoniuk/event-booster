@@ -2,7 +2,8 @@
 .signin-btn{
     background-color: var(--blurry-text-color);
     border-radius: 50%;
-    padding: 10px;
+    padding: 8px 10px;
+    color: var(--light-text-color); 
 }
 
 .auth-buttons {
@@ -10,6 +11,31 @@
     top: 50px;
     right: 50px;
 }
+
+
+.auth-btn:hover,
+.signin-btn:hover {
+    background-color: var(--accent-text-color);
+}
+.icon-auth-on,
+.icon-signIn-on,
+.icon-auth-done,
+.icon-signIn-done {
+    display: none;
+}
+.icon-auth-on.is-open,
+.icon-signIn-on.is-open {
+        fill: var(--light-text-color);
+        display: block;
+
+
+}
+.icon-auth-done.is-open,
+.icon-signIn-done.is-open {
+    display: block;
+    fill: var(--accent-text-color);
+}
+
 
 .auth.is-open,
 .signIn.is-open {

@@ -15,9 +15,8 @@ function authWithEmailAndPassword (email, password, link) {
     }).then(r => {
         if(r.status === 200){
             resolve()
-        } else {
-            reject()
         } 
+         return reject()
         
     }).catch(err => console.log(err))
 }
