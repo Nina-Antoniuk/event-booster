@@ -2,12 +2,12 @@
   position: fixed;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   bottom: 20px;
   left: 0;
   right: 0;
-
   color: var(--blurry-text-color);
-  justify-content: center;
+
   @media screen and (max-width: 767px) {
     padding-left: auto;
     padding-right: auto;
@@ -21,20 +21,19 @@
   display: flex;
   justify-content: center;
   height: 30px;
+  padding: 0;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   background-color: var(--main-text-color);
-  padding: 0;
 }
 .heart-icon {
-  color: #d40000;
   padding-left: 6px;
   padding-right: 5px;
   padding-bottom: 0;
   font-size: 25px;
-
+  color: #d40000;
   animation: animateScale 1700ms infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
