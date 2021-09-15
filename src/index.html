@@ -22,6 +22,28 @@
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyC1ZrE8wfTMzQComHl8bVNa053NAxSTKFI",
+        authDomain: "event-booster-7e923.firebaseapp.com",
+        databaseURL: "https://event-booster-7e923-default-rtdb.firebaseio.com",
+        projectId: "event-booster-7e923",
+        storageBucket: "event-booster-7e923.appspot.com",
+        messagingSenderId: "200776246821",
+        appId: "1:200776246821:web:18caae009e19aeb6e241cc"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+    </script>
+    <script src="./js/auth.js"></script>
+
     
   </body>
 </html>
