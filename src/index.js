@@ -1,4 +1,3 @@
 import './sass/main.scss';
+import './js/get-countries';
 import Pagination from './js/pagination';
-
-const API_KEY = 'Iks6oDIpGdxCIBqWeGHShYrO2fcgxZEd';
