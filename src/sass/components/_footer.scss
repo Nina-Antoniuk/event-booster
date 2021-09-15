@@ -21,7 +21,8 @@
   display: flex;
   justify-content: center;
   height: 30px;
-  padding: 0;
+  padding-bottom: 27px;
+  margin: 0;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -35,7 +36,7 @@
   font-size: 25px;
   color: #d40000;
   -webkit-animation: animateScale 1700ms infinite cubic-bezier(0.4, 0, 0.2, 1);
-          animation: animateScale 1700ms infinite cubic-bezier(0.4, 0, 0.2, 1);
+  animation: animateScale 1700ms infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-section:hover,
@@ -43,7 +44,7 @@
   color: var(--light-text-color);
   & .heart-icon {
     -webkit-animation: animateScale 500ms infinite cubic-bezier(0.4, 0, 0.2, 1);
-            animation: animateScale 500ms infinite cubic-bezier(0.4, 0, 0.2, 1);
+    animation: animateScale 500ms infinite cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 .developers {
