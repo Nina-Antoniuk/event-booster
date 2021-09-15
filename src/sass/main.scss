@@ -1,7 +1,11 @@
-@import './base/common';
+// utils
+@import './utils/variables';
 
+// base
+@import './base/common';
 @import './base/container';
 @import './base/scroll';
+
 // components
 @import './components/pagination';
 @import './components/footer';
@@ -9,4 +13,5 @@
 
 // layout
 @import './layout/header';
+
 
