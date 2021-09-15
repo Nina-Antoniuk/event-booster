@@ -11,19 +11,47 @@
 
 .buttonUp {
   position: fixed;
-  right: -75px;
-  bottom: 20px;
+  left: -40px;
+  bottom: 50px;
   width: auto;
   height: 40px;
   background-color: var(--bg-input);
   color: var(--light-text-color);
   border: none;
   border-radius: 0px 10px 0px 10px;
-  // display: none;
+  padding: 3;
+  margin: 0;
   transition: transform 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media screen and (max-width: 767px) {
+    display: inline-block;
+    left: -40px;
+    width: 40px;
+    height: 72px;
+    white-space: nowrap;
+  }
+  @media screen and (min-width: 768px) {
+    left: -80px;
+  }
 }
 
 .buttonUp.isActive {
-  // display: block;
-  transform: translateX(-100px);
+  @media screen and (max-width: 767px) {
+    transform: translateX(35px);
+  }
+  @media screen and (min-width: 768px) {
+    transform: translateX(85px);
+  }
+}
+
+.buttonText {
+  margin: 0;
+  padding: 0;
+
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    top: 95%;
+    left: 30%;
+    transform-origin: 0 0;
+    transform: rotate(270deg);
+  }
 }

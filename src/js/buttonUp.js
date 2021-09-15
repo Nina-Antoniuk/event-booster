@@ -1,8 +1,8 @@
 const buttonUp = document.querySelector('#buttonScrollUp');
-const header = document.querySelector('.headerTemp');
+const header = document.querySelector('.header');
 const sectionOne = document.querySelector('.section1Temp');
 const options = {
-  treshhold: 0.5,
+  threshold: 0.9,
 };
 
 function buttonUpActivator(entries, observer) {
@@ -20,8 +20,9 @@ const observer = new IntersectionObserver(buttonUpActivator, options);
 function scrollUp(e) {
   header.scrollIntoView({
     behavior: 'smooth',
-    block: 'end',
+    block: 'start',
   });
+
 }
 
 observer.observe(header);
