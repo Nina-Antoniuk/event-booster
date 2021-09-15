@@ -19,7 +19,12 @@ export default class Pagination {
   }
 
   // Go to the top of the page
-  goTop() {}
+  goTop() {
+    document.querySelector('body').scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    });
+  }
 
   // To hide pagination
   hide() {
@@ -139,6 +144,8 @@ export default class Pagination {
     this.render();
 
     await this.getEventsByPagination(page);
+
+    this.goTop();
   }
 
   // Receive events
