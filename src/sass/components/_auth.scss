@@ -1,0 +1,69 @@
+.auth-btn, 
+.signin-btn{
+    background-color: var(--blurry-text-color);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.auth.is-open,
+.signIn.is-open {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: var(--bg-input);
+    text-align: center;
+    padding-top: 40px;
+
+    & .auth-container,
+    & .signIn-container {
+        width: 450px;
+        height: 400px;
+        background-color: var(--blurry-text-color);
+        margin-left: calc((100% - 450px) / 2);
+        border-radius: 20px;
+    }
+    & .title {
+        padding-top: 20px;
+    }
+    & .form {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    & .form-label{
+        display: block;
+    }
+    & .form-label:not(:last-child){
+        margin-bottom: 25px;
+    }
+    & .label-text {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--light-text-color);
+    }
+    & input {
+        border-radius: 10px;
+        padding: 5px;
+    }
+    & .submit {
+        border-radius: 10px;
+        padding: 10px;
+        background-color: var(--accent-text-color);
+    }
+
+}
+.auth,
+.signIn {
+    display: none;
+}
+
+
+
+

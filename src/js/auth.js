@@ -9,9 +9,14 @@ refs.authBtn.addEventListener('click', onLoginButtonClick)
 refs.signInBtn.addEventListener('click', onSignInBtnClick)
 refs.formAuth.addEventListener('submit', authFormSubmit)
 refs.formSignIn.addEventListener('submit', signInFormSubmit)
+refs.formAuth.addEventListener('click', authFormClose)
+refs.formSignIn.addEventListener('click', signInFormClose)
 
-function onLoginButtonClick() {
+
+
+function onLoginButtonClick(e) {
     refs.formAuth.classList.toggle('is-open')
+
 }
 function onSignInBtnClick(e){
     refs.formSignIn.classList.toggle('is-open')
@@ -22,8 +27,9 @@ function authFormSubmit(e) {
     getEmailAndPassword(e)
     authWithEmailAndPassword(email, password, logInFetchLink)
 
-    clearEmailAndPassword()
+    clearEmailAndPassword(e)
     refs.formAuth.classList.toggle('is-open')
+    
 
 }
 
@@ -31,7 +37,7 @@ function signInFormSubmit(e){
     e.preventDefault();
     getEmailAndPassword(e)
     authWithEmailAndPassword(email, password, signInFetchLink)
-    clearEmailAndPassword()
+    clearEmailAndPassword(e)
     refs.formSignIn.classList.toggle('is-open')
 }
 
@@ -40,9 +46,27 @@ function getEmailAndPassword (e){
     password = e.target.querySelector('.password').value
 }
 
-function clearEmailAndPassword(){
+function clearEmailAndPassword(e){
     email = ''
     password = ''
+     e.target.querySelector('.email').value = ''
+   e.target.querySelector('.password').value = ''
 }
+
+function authFormClose(e){
+    if( e.target === e.currentTarget){
+        refs.formAuth.classList.toggle('is-open')
+    }
+    return
+}
+
+function signInFormClose(e){
+    if( e.target === e.currentTarget){
+        refs.formSignIn.classList.toggle('is-open')
+    }
+    return
+}
+
+
 
 
