@@ -55,6 +55,11 @@
         background-color: var(--dark-bg-color);
         margin-left: calc((100% - 450px) / 2);
         border-radius: 20px;
+        @media screen and (max-width: 767px){
+            width: 260px;
+            margin-left: calc((100% - 260px) / 2);
+
+        }
     }
     & .title {
         padding-top: 20px;
