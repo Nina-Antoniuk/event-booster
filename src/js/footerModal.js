@@ -10,12 +10,14 @@ $(document).ready(function(){
                 items:1
             },
             768:{
-                items:2
-            },
-            1280:{
                 items:3
-            }
-        }
+            },
+            
+        },
+        navText: [
+            '<svg class="arrow-left" width="20" height="20"><use class="icon" href="./images/svg/sprits.svg#icon-arrow-left"></use></svg>',
+            '<svg class="arrow-right" width="20" height="20"><use class="icon" href="./images/svg/sprits.svg#icon-arrow-right"></use></svg>'
+            ]
     });
 });
 
