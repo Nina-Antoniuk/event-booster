@@ -1,3 +1,4 @@
+import { API_KEY, BASE_URL } from './consts';
 export default class Pagination {
   constructor({
     container = '.pagination',
@@ -8,106 +9,164 @@ export default class Pagination {
     hidden = false,
   } = {}) {
     this.container = document.querySelector(container);
-    this.currentPage = page; // Номер текущей страницы
-    this.totalPages = pages; // Количество страниц при поиске
-    this.querySearch = keyword; // Ключевое слово для поиска
-    this.queryCountry = country; // Код страны для поиска
+    this.currentPage = page;
+    this.totalPages = pages;
+    this.querySearch = keyword;
+    this.queryCountry = country;
 
     hidden && this.hide();
     this.bindEvents();
   }
 
-  // Метод для скрытия пагинации
+  // Go to the top of the page
+  goTop() {
+    document.querySelector('body').scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    });
+  }
+
+  // To hide pagination
   hide() {
     this.container.classList.add('is-hidden');
   }
 
-  // Метод для сздания элементов пагинации
-  render(pages = this.totalPages) {
-    // Записываем новое значения общего количества страниц
-    this.totalPages = pages;
+  // To create pagination items
+  render(pages = this.getTotalPages()) {
+    let { container, currentPage, totalPages } = this;
     let links = ``;
 
-    // Создаем нужное количество элементов пагинации
-    for (let page = 0; page < pages; page += 1) {
-      links += `<a class="pagination__link ${
-        page === 0 ? 'pagination__link--active' : ''
-      }" href="#">${page + 1}</a>`;
+    const ellipsis = `<span class="pagination__link pagination__link--ellipsis">...</span>`;
+
+    this.newTotalPages(pages);
+
+    if (totalPages <= 7) {
+      for (let page = 0; page < pages; page += 1) {
+        links += `<a class="pagination__link ${
+          page === Number(currentPage) - 1 ? 'pagination__link--active' : ''
+        }" href="#">${page + 1}</a>`;
+      }
     }
 
-    this.container.innerHTML = links;
+    if (Number(currentPage) < 5 && totalPages > 7) {
+      for (let page = 0; page < 5; page += 1) {
+        links += `<a class="pagination__link ${
+          page === Number(currentPage) - 1 ? 'pagination__link--active' : ''
+        }" href="#">${page + 1}</a>`;
+      }
+      links += `${ellipsis}<a class="pagination__link" href="#">${totalPages}</a>`;
+    }
+
+    if (Number(currentPage) >= 5 && Number(currentPage) < Number(totalPages) - 3) {
+      links += `<a class="pagination__link" href="#">1</a>${ellipsis}`;
+
+      for (let i = 3; i > 1; i -= 1) {
+        links += `<a class="pagination__link" href="#">${Number(currentPage) - i + 1}</a>`;
+      }
+
+      links += `<a class="pagination__link pagination__link--active" href="#">${currentPage}</a>`;
+
+      for (let i = 1; i < 3; i += 1) {
+        links += `<a class="pagination__link" href="#">${Number(currentPage) + i}</a>`;
+      }
+
+      links += `${ellipsis}<a class="pagination__link" href="#">${totalPages}</a>`;
+    }
+
+    if (Number(currentPage) >= Number(totalPages) - 3) {
+      links += `<a class="pagination__link" href="#">1</a>${ellipsis}`;
+      for (let page = Number(totalPages) - 5; page < totalPages; page += 1) {
+        links += `<a class="pagination__link ${
+          page === Number(currentPage) - 1 ? 'pagination__link--active' : ''
+        }" href="#">${page + 1}</a>`;
+      }
+    }
+
+    container.innerHTML = links;
+  }
+  getCurrentPage() {
+    return this.currentPage;
   }
 
-  // Метод обнуления текущей страницы
-  goStart() {
-    this.currentPage = 1;
+  getTotalPages() {
+    return this.totalPages;
   }
 
-  // Метод для добавления обработчика события с привязанным контексом
+  newCurrentPage(newPage) {
+    this.currentPage = newPage;
+  }
+
+  newTotalPages(newPages) {
+    this.totalPages = newPages;
+  }
+
+  // Add an event handler with a bound context
   bindEvents() {
     this.container.addEventListener('click', this.click.bind(this));
   }
 
-  // Метод для клика на ссылку
+  // Click on the link
   click(event) {
     event.preventDefault();
     const target = event.target;
     const activeClass = 'pagination__link--active';
 
-    // Проверяем нажатия по ссылке
+    // Checking link clicks
     if (target.nodeName !== 'A' || target.classList.contains(activeClass)) {
       return;
     }
 
-    // Удаляем класс у активного элемента
+    // Removing css class from the active element
     const currentActiveBtn = document.querySelector(`.${activeClass}`);
     currentActiveBtn.classList.remove(activeClass);
 
-    // Добавляем класс к новому элементу
+    this.newCurrentPage(target.textContent);
+
+    // Add a loading spinner
+    document.querySelector('body').classList.add('loading');
+
+    // Making css class to new element
     target.classList.add(activeClass);
 
-    // Делаем переход на страницу
+    // Making the transition to the page
     this.goTo(target.textContent);
+
+    this.render();
   }
 
-  // Метод для перехода на конкретную страницу
+  // to go to a specific page
   async goTo(page = 1) {
-    // Проверка на максимальное количество страниц
-    if (page > this.totalPages) {
-      return `Maximum ${this.totalPages} pages`;
+    if (page > this.getTotalPages()) {
+      return `Maximum ${this.getTotalPages()} pages`;
     }
 
-    // Записываем новое значения текущей страницы
-    this.currentPage = page;
+    this.newCurrentPage(page);
+    this.render();
 
-    // Делаем новый запрос на мероприятия со значением новой текущей страницы
     await this.getEventsByPagination(page);
+
+    this.goTop();
   }
 
-  // Метод для получения мероприятий
-  async getEventsByPagination(pageNumber = this.currentPage) {
-    // Нужно будет оптимизировать
-    const url = `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${
-      // ключевое слово поиска
-      this.querySearch
-    }&countryCode=${
-      // страна поиска
-      this.queryCountry
-    }&page=${
-      // номер страницы (отсчет идет с 0 )
+  // Receive events
+  async getEventsByPagination(pageNumber = this.getCurrentPage()) {
+    const url = `${BASE_URL}?keyword=${this.querySearch}&countryCode=${this.queryCountry}&page=${
       pageNumber - 1
-    }&apikey=QVx83fRMIRoVdGVGRMnXNMc8Ghr9B1Dr`;
+    }&apikey=${API_KEY}`;
 
     try {
-      // Отправляем запрос
+      // Send a request
       const data = await fetch(url);
       const response = await data.json();
 
-      // Записываем новое значения общего количества страниц
       const pages = response.page.totalPages;
-      this.totalPages = pages;
+      this.newTotalPages(pages);
 
-      // Возвращаем масив мероприятий
+      setTimeout(() => {
+        document.querySelector('body').classList.remove('loading');
+      }, 200);
+
+      // Returning an array of events
       console.log(response._embedded.events);
       return response._embedded.events;
     } catch (error) {
@@ -116,14 +175,14 @@ export default class Pagination {
   }
 }
 
-// Делам экземпляр класса
+// To do an instance of a Class
 const pager = new Pagination({ pages: 12, keyword: 'abba' });
 
-// Вызываем метод для создания 11 элементов пагинации
+// Call to create 12 pagination items
 pager.render(12);
 
-// Скинуть счетчик на первую страницу
-pager.goStart();
+// Throw counter to first page
+pager.newCurrentPage(1);
 
-// // Получить мероприятия первой страницы
+// // Get Front Page Events
 pager.goTo(1);

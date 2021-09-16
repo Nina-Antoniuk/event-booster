@@ -12,9 +12,9 @@
     <!-- <div class="title-form"> -->
         <h1 class="title">FIND BEST EVENTS <br> AROUND THE WORLD</h1>
     <!-- </div> -->
-    <form class="search-form" id="search-form">
+    <form class="search-form" id="search-form"> <!--навіщо тут id?-->
         <div class="input">
-            <input class="input-search"
+            <input id="customer-input-js" class="input-search"
                 type="text"
                 name="search" 
                 autocomplete="off" 
@@ -26,8 +26,8 @@
             </svg>
         </div>
         <div class="input">
-            <select class="input-search" id="countrySelect" type="text">
-                <option value="">Choose country</option>
+            <select id="country-select-js"  class="input-search" type="text">
+                <option>Choose country</option>
             </select>
             <svg class="input-icon">
                 <use href="./images/svg/sprits.svg#icon-select"></use>
@@ -36,6 +36,7 @@
     </form>
     </div>
 </header>
- <ul class="gallery"></ul>
 </body>
 </html>
+
+<!-- додати контейнер, бо при зміні ширини екрану все їде -->
