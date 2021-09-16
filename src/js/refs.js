@@ -8,7 +8,9 @@ iconSignInOn: document.querySelector('.icon-signIn-on'),
 iconAuthDone: document.querySelector('.icon-auth-done'),
 iconSignInDone: document.querySelector('.icon-signIn-done'),
 footerSection: document.querySelector('.footer__section'),
-footerModal: document.querySelector('.footer__modal')
+footerModal: document.querySelector('.footer__modal'),
+  customerInput: document.querySelector('#customer-input-js'),
+  chooseCountry: document.querySelector('#country-select-js') ,
 }
 
 export default refs;
