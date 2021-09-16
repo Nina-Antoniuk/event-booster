@@ -2,9 +2,20 @@
 .gallery__meta_date,
 .gallery__meta_place {
   color: var(--light-text-color);
+  margin-bottom: 0;
 }
 
-.icon {
+.gallery__meta_place {
+  margin-bottom: 5px;
+}
+
+.flex-svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery__item-card .icon {
   width: 16px;
   height: 12px;
   margin-right: 10px;
@@ -17,6 +28,7 @@
   grid-column-gap: 14px;
   grid-row-gap: 14px;
   text-align: center;
+  justify-content: center;
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
@@ -39,6 +51,8 @@
   width: 180px;
   height: 227px;
   overflow: hidden;
+  margin-right: auto;
+  margin-left: auto;
   // text-align: center;
 }
 
@@ -48,4 +62,9 @@
   display: block;
   -o-object-fit: cover;
   object-fit: cover;
+  border-radius: 50px 0px;
+}
+
+.gallery_margin {
+  margin-top: 5px;
 }
