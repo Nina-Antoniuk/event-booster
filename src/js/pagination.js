@@ -217,5 +217,3 @@ class Pagination {
 
 // To do an instance of a Class
 export const pager = new Pagination();
-
-pager.render(20);
