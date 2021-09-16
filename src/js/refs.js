@@ -11,6 +11,10 @@ footerSection: document.querySelector('.footer__section'),
 footerModal: document.querySelector('.footer__modal'),
   customerInput: document.querySelector('#customer-input-js'),
   chooseCountry: document.querySelector('#country-select-js') ,
-}
+
+  galleryList: document.querySelector(".gallery"),
+  customerInput: document.querySelector("#customer-input-js"),
+  chooseCountry: document.querySelector("#country-select-js"),
+};
 
 export default refs;
