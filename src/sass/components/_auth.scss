@@ -28,17 +28,16 @@
     display: none;
     
 }
+
 .icon-auth-on.is-open,
 .icon-signIn-on.is-open {
         fill: var(--light-text-color);
         display: block;
-
-
 }
 .icon-auth-done.is-open,
 .icon-signIn-done.is-open {
     display: block;
-    fill: var(--accent-text-color);
+    fill: var(--second-accent-color);
 }
 
 
