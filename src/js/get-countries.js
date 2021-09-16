@@ -17,7 +17,7 @@ function createOptionsMarkup() {
 }
 
 function createMarkup(country) {
-  return `<option value="">${country.name}</option>`
+  return `<option value="${country.countryCode}">${country.name}</option>`
 }
 
 

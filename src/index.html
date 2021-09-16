@@ -3,36 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Заголовок страницы</title>
+    <title>Event Booster</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- <link rel="shortcut icon" type="image/png" href="/images/favicon.png"> -->
+    <link rel="shortcut icon" type="image/png" href="/images/favicon5.png"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
+
   </head>
-  <body>
+  <body class="body">
     <include src="./partials/header.html"></include>
-    <!-- <include src="./partials/auth.html"></include> -->
+    <include src="./partials/gallery.html"></include>
+    <include src="./partials/auth.html"></include>
 
     <include src="./partials/pagination.html"></include>
+
     <include src="./partials/button-up.html"></include>
 
     <include src="./partials/footer.html"></include>
 
 
     <script src="./index.js"></script>
-    <!-- <script src="./js/buttonUp.js"></script> -->
+    <script src="./js/button-up.js"></script>
+
 
     <!-- <script type="module">
+
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
-    
+
       // Your web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyC1ZrE8wfTMzQComHl8bVNa053NAxSTKFI",
@@ -41,12 +51,17 @@
         projectId: "event-booster-7e923",
         storageBucket: "event-booster-7e923.appspot.com",
         messagingSenderId: "200776246821",
-        appId: "1:200776246821:web:18caae009e19aeb6e241cc"
+        appId: "1:200776246821:web:18caae009e19aeb6e241cc",
       };
-    
+
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
-    </script> -->
-    
+    </script>
+    <script src="./js/countries.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="./js/footerModal.js"></script>
+    <script src="./js/auth.js"></script>
+
   </body>
 </html>

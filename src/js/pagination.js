@@ -1,11 +1,11 @@
-import { API_KEY, BASE_URL } from './consts';
+import { API_KEY, BASE_URL } from "./consts";
 export default class Pagination {
   constructor({
-    container = '.pagination',
+    container = ".pagination",
     page = 1,
     pages = 20,
-    keyword = '',
-    country = '',
+    keyword = "",
+    country = "",
     hidden = false,
   } = {}) {
     this.container = document.querySelector(container);
@@ -20,15 +20,15 @@ export default class Pagination {
 
   // Go to the top of the page
   goTop() {
-    document.querySelector('body').scrollIntoView({
-      block: 'start',
-      behavior: 'smooth',
+    document.querySelector("body").scrollIntoView({
+      block: "start",
+      behavior: "smooth",
     });
   }
 
   // To hide pagination
   hide() {
-    this.container.classList.add('is-hidden');
+    this.container.classList.add("is-hidden");
   }
 
   // To create pagination items
@@ -43,7 +43,7 @@ export default class Pagination {
     if (totalPages <= 7) {
       for (let page = 0; page < pages; page += 1) {
         links += `<a class="pagination__link ${
-          page === Number(currentPage) - 1 ? 'pagination__link--active' : ''
+          page === Number(currentPage) - 1 ? "pagination__link--active" : ""
         }" href="#">${page + 1}</a>`;
       }
     }
@@ -51,23 +51,30 @@ export default class Pagination {
     if (Number(currentPage) < 5 && totalPages > 7) {
       for (let page = 0; page < 5; page += 1) {
         links += `<a class="pagination__link ${
-          page === Number(currentPage) - 1 ? 'pagination__link--active' : ''
+          page === Number(currentPage) - 1 ? "pagination__link--active" : ""
         }" href="#">${page + 1}</a>`;
       }
       links += `${ellipsis}<a class="pagination__link" href="#">${totalPages}</a>`;
     }
 
-    if (Number(currentPage) >= 5 && Number(currentPage) < Number(totalPages) - 3) {
+    if (
+      Number(currentPage) >= 5 &&
+      Number(currentPage) < Number(totalPages) - 3
+    ) {
       links += `<a class="pagination__link" href="#">1</a>${ellipsis}`;
 
       for (let i = 3; i > 1; i -= 1) {
-        links += `<a class="pagination__link" href="#">${Number(currentPage) - i + 1}</a>`;
+        links += `<a class="pagination__link" href="#">${
+          Number(currentPage) - i + 1
+        }</a>`;
       }
 
       links += `<a class="pagination__link pagination__link--active" href="#">${currentPage}</a>`;
 
       for (let i = 1; i < 3; i += 1) {
-        links += `<a class="pagination__link" href="#">${Number(currentPage) + i}</a>`;
+        links += `<a class="pagination__link" href="#">${
+          Number(currentPage) + i
+        }</a>`;
       }
 
       links += `${ellipsis}<a class="pagination__link" href="#">${totalPages}</a>`;
@@ -77,7 +84,7 @@ export default class Pagination {
       links += `<a class="pagination__link" href="#">1</a>${ellipsis}`;
       for (let page = Number(totalPages) - 5; page < totalPages; page += 1) {
         links += `<a class="pagination__link ${
-          page === Number(currentPage) - 1 ? 'pagination__link--active' : ''
+          page === Number(currentPage) - 1 ? "pagination__link--active" : ""
         }" href="#">${page + 1}</a>`;
       }
     }
@@ -102,17 +109,17 @@ export default class Pagination {
 
   // Add an event handler with a bound context
   bindEvents() {
-    this.container.addEventListener('click', this.click.bind(this));
+    this.container.addEventListener("click", this.click.bind(this));
   }
 
   // Click on the link
   click(event) {
     event.preventDefault();
     const target = event.target;
-    const activeClass = 'pagination__link--active';
+    const activeClass = "pagination__link--active";
 
     // Checking link clicks
-    if (target.nodeName !== 'A' || target.classList.contains(activeClass)) {
+    if (target.nodeName !== "A" || target.classList.contains(activeClass)) {
       return;
     }
 
@@ -123,7 +130,7 @@ export default class Pagination {
     this.newCurrentPage(target.textContent);
 
     // Add a loading spinner
-    document.querySelector('body').classList.add('loading');
+    document.querySelector("body").classList.add("loading");
 
     // Making css class to new element
     target.classList.add(activeClass);
@@ -150,9 +157,9 @@ export default class Pagination {
 
   // Receive events
   async getEventsByPagination(pageNumber = this.getCurrentPage()) {
-    const url = `${BASE_URL}?keyword=${this.querySearch}&countryCode=${this.queryCountry}&page=${
-      pageNumber - 1
-    }&apikey=${API_KEY}`;
+    const url = `${BASE_URL}?keyword=${this.querySearch}&countryCode=${
+      this.queryCountry
+    }&page=${pageNumber - 1}&apikey=${API_KEY}`;
 
     try {
       // Send a request
@@ -163,7 +170,7 @@ export default class Pagination {
       this.newTotalPages(pages);
 
       setTimeout(() => {
-        document.querySelector('body').classList.remove('loading');
+        document.querySelector("body").classList.remove("loading");
       }, 200);
 
       // Returning an array of events
@@ -176,7 +183,7 @@ export default class Pagination {
 }
 
 // To do an instance of a Class
-const pager = new Pagination({ pages: 12, keyword: 'abba' });
+const pager = new Pagination({ pages: 12, keyword: "abba" });
 
 // Call to create 12 pagination items
 pager.render(12);
