@@ -1,5 +1,6 @@
 import { API_KEY, BASE_URL } from "./consts";
 import refs from "./refs";
+import renderGalleryMarkup from "./renderGalleryMarkup";
 class Pagination {
   constructor({
     container = ".pagination",
@@ -197,7 +198,8 @@ class Pagination {
       }, 350);
 
       // Returning an array of events
-      console.log(response._embedded.events);
+      // console.log(response._embedded.events);
+      renderGalleryMarkup(response._embedded.events);
       return response._embedded.events;
     } catch (error) {
       console.log(error);
@@ -215,18 +217,3 @@ class Pagination {
 
 // To do an instance of a Class
 export const pager = new Pagination();
-
-// pager.newCountry("US");
-// pager.newKeyword("sting");
-
-// Throw counter to first page
-// pager.newCurrentPage(2);
-
-// Throw total pages
-// pager.newTotalPages(5);
-
-// Call to create 12 pagination items
-// pager.render(2);
-
-// // Get Front Page Events
-// pager.goToPage(1);
