@@ -1,6 +1,6 @@
 import { API_KEY, BASE_URL } from "./consts";
 import refs from "./refs";
-export default class Pagination {
+class Pagination {
   constructor({
     container = ".pagination",
     page = 1,
@@ -176,7 +176,7 @@ export default class Pagination {
   async getEventsByPagination(pageNumber = this.getCurrentPage()) {
     const url = `${BASE_URL}?keyword=${this.querySearch}&countryCode=${
       this.queryCountry
-    }&page=${pageNumber - 1}&apikey=${API_KEY}`;
+    }&apikey=${API_KEY}&page=${pageNumber - 1}`;
 
     try {
       // Send a request
@@ -201,17 +201,16 @@ export default class Pagination {
 }
 
 // To do an instance of a Class
-const pager = new Pagination({ pages: 12, keyword: "abba" });
+export const pager = new Pagination();
+// pager.newCountry("US");
+// pager.newKeyword("sting");
+// // Throw counter to first page
+// pager.newCurrentPage(2);
+// // Throw total pages
+// // pager.newTotalPages(5);
 
-pager.newCountry("US");
-pager.newKeyword("Phoenix");
-// Throw counter to first page
-pager.newCurrentPage(1);
-// Throw total pages
-// pager.newTotalPages(5);
+// // Call to create 12 pagination items
+// pager.render(2);
 
-// Call to create 12 pagination items
-pager.render(2);
-
-// // Get Front Page Events
-// pager.goToPage(1);
+// // // Get Front Page Events
+// // pager.goToPage(1);
