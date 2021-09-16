@@ -32,6 +32,11 @@ class Pagination {
     this.container.classList.add("is-hidden");
   }
 
+  // To show pagination
+  show() {
+    this.container.classList.remove("is-hidden");
+  }
+
   // To create pagination items
   render(pages = this.getTotalPages()) {
     this.newTotalPages(pages);
@@ -202,15 +207,18 @@ class Pagination {
 
 // To do an instance of a Class
 export const pager = new Pagination();
+
 // pager.newCountry("US");
 // pager.newKeyword("sting");
-// // Throw counter to first page
-// pager.newCurrentPage(2);
-// // Throw total pages
-// // pager.newTotalPages(5);
 
-// // Call to create 12 pagination items
+// Throw counter to first page
+// pager.newCurrentPage(2);
+
+// Throw total pages
+// pager.newTotalPages(5);
+
+// Call to create 12 pagination items
 // pager.render(2);
 
-// // // Get Front Page Events
-// // pager.goToPage(1);
+// // Get Front Page Events
+// pager.goToPage(1);
