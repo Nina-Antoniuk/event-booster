@@ -203,6 +203,14 @@ class Pagination {
       console.log(error);
     }
   }
+
+  letsGo({ keyword, countryCode, pages } = {}) {
+    this.newCurrentPage(1);
+    this.newKeyword(keyword);
+    this.newCountry(countryCode);
+    this.render(pages);
+    this.show();
+  }
 }
 
 // To do an instance of a Class
