@@ -1,7 +1,7 @@
 .auth-btn, 
 .signin-btn{
     background-color: var(--dark-bg-color);
-    border-radius: 50%;
+    border-radius: 0px 10px 0px 10px;
     padding: 8px 10px;
     color: var(--light-text-color); 
     & .auth-icon,
@@ -30,15 +30,13 @@
 }
 
 .icon-auth-on.is-open,
-.icon-signIn-on.is-open {
+.icon-signIn-on.is-open,
+.icon-auth-done.is-open,
+.icon-signIn-done.is-open {
         fill: var(--light-text-color);
         display: block;
 }
-.icon-auth-done.is-open,
-.icon-signIn-done.is-open {
-    display: block;
-    fill: var(--second-accent-color);
-}
+
 
 
 .auth.is-open,
