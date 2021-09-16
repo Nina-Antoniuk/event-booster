@@ -80,7 +80,10 @@ export default class Pagination {
       links += `${ellipsis}<a class="pagination__link" href="#">${totalPages}</a>`;
     }
 
-    if (Number(currentPage) >= Number(totalPages) - 3) {
+    if (
+      Number(totalPages) > 7 &&
+      Number(currentPage) >= Number(totalPages) - 3
+    ) {
       links += `<a class="pagination__link" href="#">1</a>${ellipsis}`;
       for (let page = Number(totalPages) - 5; page < totalPages; page += 1) {
         links += `<a class="pagination__link ${
@@ -186,7 +189,7 @@ export default class Pagination {
 const pager = new Pagination({ pages: 12, keyword: "abba" });
 
 // Call to create 12 pagination items
-pager.render(12);
+pager.render(2);
 
 // Throw counter to first page
 pager.newCurrentPage(1);
