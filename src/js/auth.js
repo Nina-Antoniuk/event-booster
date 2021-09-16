@@ -1,63 +1,72 @@
-const authBtn = document.querySelector('.auth-btn')
-const signInBtn = document.querySelector('.signin-btn')
-const formAuth = document.querySelector('.auth')
-const formSignIn = document.querySelector('.signIn')
+import refs from './refs.js'
+import {logInFetchLink, signInFetchLink} from './linksForFatch.js'
+import authWithEmailAndPassword from './fetchAuth.js'
 
-authBtn.addEventListener('click', onLoginButtonClick)
-// signInBtn.addEventListener('click', onSignInBtnClick)
-formAuth.addEventListener('submit', authFormSubmit)
+let email = ''
+let password = ''
+
+refs.authBtn.addEventListener('click', onLoginButtonClick)
+refs.signInBtn.addEventListener('click', onSignInBtnClick)
+refs.formAuth.addEventListener('submit', authFormSubmit)
+refs.formSignIn.addEventListener('submit', signInFormSubmit)
+refs.formAuth.addEventListener('click', authFormClose)
+refs.formSignIn.addEventListener('click', signInFormClose)
 
 
-function onLoginButtonClick() {
-    formAuth.classList.toggle('is-open')
+
+function onLoginButtonClick(e) {
+    refs.formAuth.classList.toggle('is-open')
+
+}
+function onSignInBtnClick(e){
+    refs.formSignIn.classList.toggle('is-open')
 }
 
 function authFormSubmit(e) {
     e.preventDefault();
-    let email = e.target.querySelector('.email').value
-    let password = e.target.querySelector('.password').value
-    authWithEmailAndPassword(email, password)
+    getEmailAndPassword(e)
+    authWithEmailAndPassword(email, password, logInFetchLink)
 
-    e.target.querySelector('.email').value = ''
-    e.target.querySelector('.password').value = ''
-    console.log('ok')
-    formAuth.classList.toggle('is-open')
+    clearEmailAndPassword(e)
+    refs.formAuth.classList.toggle('is-open')
+    
 
 }
 
-function authWithEmailAndPassword(email, password){
-    const API_KEY = `AIzaSyC1ZrE8wfTMzQComHl8bVNa053NAxSTKFI`
-    return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`, {
-        method: 'POST',
-        body: JSON.stringify({
-            email, password,
-            returnSecureToken: true
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(r => r.json()).then(r => {
-        alert('Вы авторизировались')
-    }).catch(err => {
-        alert('Такой имейл уже существет')
-    })
+function signInFormSubmit(e){
+    e.preventDefault();
+    getEmailAndPassword(e)
+    authWithEmailAndPassword(email, password, signInFetchLink)
+    clearEmailAndPassword(e)
+    refs.formSignIn.classList.toggle('is-open')
+}
+
+function getEmailAndPassword (e){
+    email = e.target.querySelector('.email').value
+    password = e.target.querySelector('.password').value
+}
+
+function clearEmailAndPassword(e){
+    email = ''
+    password = ''
+     e.target.querySelector('.email').value = ''
+   e.target.querySelector('.password').value = ''
+}
+
+function authFormClose(e){
+    if( e.target === e.currentTarget){
+        refs.formAuth.classList.toggle('is-open')
+    }
+    return
+}
+
+function signInFormClose(e){
+    if( e.target === e.currentTarget){
+        refs.formSignIn.classList.toggle('is-open')
+    }
+    return
 }
 
 
 
 
-
-
-function signInWithEmailAndPassword(email, password){
-    const API_KEY = `AIzaSyC1ZrE8wfTMzQComHl8bVNa053NAxSTKFI`
-    return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`, {
-        method: 'POST',
-        body: JSON.stringify({
-            email, password,
-            returnSecureToken: true
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(r => r.json)
-}
