@@ -108,6 +108,14 @@ export default class Pagination {
   }
 
   newTotalPages(newPages) {
+    // API has limitations
+    // "errorsCode": "DIS1035",
+    // "detail": "API Limits Exceeded: Max paging depth exceeded. (page * size) must be less than 1,000",
+    if (newPages > 50) {
+      this.totalPages = 50;
+      return;
+    }
+
     this.totalPages = newPages;
   }
 
