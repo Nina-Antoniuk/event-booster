@@ -1,4 +1,5 @@
 import { API_KEY, BASE_URL } from "./consts";
+import refs from "./refs";
 export default class Pagination {
   constructor({
     container = ".pagination",
@@ -20,7 +21,7 @@ export default class Pagination {
 
   // Go to the top of the page
   goTop() {
-    document.querySelector("body").scrollIntoView({
+    refs.body.scrollIntoView({
       block: "start",
       behavior: "smooth",
     });
@@ -133,7 +134,7 @@ export default class Pagination {
     this.newCurrentPage(target.textContent);
 
     // Add a loading spinner
-    document.querySelector("body").classList.add("loading");
+    refs.body.classList.add("loading");
 
     // Making css class to new element
     target.classList.add(activeClass);
@@ -171,7 +172,7 @@ export default class Pagination {
 
       setTimeout(() => {
         this.render();
-        document.querySelector("body").classList.remove("loading");
+        refs.body.classList.remove("loading");
       }, 350);
 
       // Returning an array of events
