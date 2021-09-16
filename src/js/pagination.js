@@ -22,7 +22,7 @@ class Pagination {
 
   // Go to the top of the page
   goTop() {
-    refs.body.scrollIntoView({
+    refs.galleryList.scrollIntoView({
       block: "start",
       behavior: "smooth",
     });
@@ -217,3 +217,5 @@ class Pagination {
 
 // To do an instance of a Class
 export const pager = new Pagination();
+
+pager.render(20);
