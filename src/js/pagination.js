@@ -33,12 +33,11 @@ export default class Pagination {
 
   // To create pagination items
   render(pages = this.getTotalPages()) {
-    let { container, currentPage, totalPages } = this;
+    this.newTotalPages(pages);
+    const { container, currentPage, totalPages } = this;
     let links = ``;
 
     const ellipsis = `<span class="pagination__link pagination__link--ellipsis">...</span>`;
-
-    this.newTotalPages(pages);
 
     if (totalPages <= 7) {
       for (let page = 0; page < pages; page += 1) {
@@ -94,6 +93,7 @@ export default class Pagination {
 
     container.innerHTML = links;
   }
+
   getCurrentPage() {
     return this.currentPage;
   }
@@ -139,19 +139,16 @@ export default class Pagination {
     target.classList.add(activeClass);
 
     // Making the transition to the page
-    this.goTo(target.textContent);
-
-    this.render();
+    this.goToPage(target.textContent);
   }
 
   // to go to a specific page
-  async goTo(page = 1) {
+  async goToPage(page = 1) {
     if (page > this.getTotalPages()) {
       return `Maximum ${this.getTotalPages()} pages`;
     }
 
     this.newCurrentPage(page);
-    this.render();
 
     await this.getEventsByPagination(page);
 
@@ -173,8 +170,9 @@ export default class Pagination {
       this.newTotalPages(pages);
 
       setTimeout(() => {
+        this.render();
         document.querySelector("body").classList.remove("loading");
-      }, 200);
+      }, 350);
 
       // Returning an array of events
       console.log(response._embedded.events);
@@ -188,11 +186,13 @@ export default class Pagination {
 // To do an instance of a Class
 const pager = new Pagination({ pages: 12, keyword: "abba" });
 
+// Throw counter to first page
+pager.newCurrentPage(1);
+// Throw total pages
+// pager.newTotalPages(5);
+
 // Call to create 12 pagination items
 pager.render(2);
 
-// Throw counter to first page
-pager.newCurrentPage(1);
-
 // // Get Front Page Events
-pager.goTo(1);
+// pager.goToPage(1);
