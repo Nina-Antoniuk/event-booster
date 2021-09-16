@@ -14,7 +14,7 @@ export default function renderGalleryMarkup(events) {
         return `<li class ='gallery__item-card list'>
      
         <div class='gallery__image'>
-          <img src='${images[0].url}' alt='${name}'class='img gallery__img' width="180" />
+          <img class='gallery__img' src='${images[0].url}' alt='${name}' />
         </div>
         <div class='gallery__meta'>
           <p class='gallery__meta_name'>${name}</p>

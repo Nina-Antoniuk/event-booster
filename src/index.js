@@ -1,9 +1,10 @@
-import "./sass/main.scss";
+import 'simple-notify/dist/simple-notify.min.css'
+import './sass/main.scss';
+import './js/get-countries';
+import './js/event-request';
 import fetchApi from "./js/fetchApi";
 import renderGalleryMarkup from "./js/renderGalleryMarkup";
-import "./js/get-countries";
 import Pagination from "./js/pagination";
-import "./js/event-request";
 
 window.addEventListener("DOMContentLoaded", onPageLoad);
 

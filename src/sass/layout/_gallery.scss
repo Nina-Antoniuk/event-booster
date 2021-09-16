@@ -31,20 +31,21 @@
   }
 }
 
+.gallery__item-card {
+  background-color: rgb(150, 150, 250);
+}
+
 .gallery__image {
   width: 180px;
   height: 227px;
   overflow: hidden;
-  text-align: center;
+  // text-align: center;
 }
 
 .gallery__img {
-  object-fit: cover;
-  width: 100%;
+  max-width: 100%;
   height: 100%;
-  text-align: center;
-}
-
-.gallery__item-card {
-  background-color: blue;
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
