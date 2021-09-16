@@ -15,10 +15,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <!-- <link rel="shortcut icon" type="image/png" href="/images/favicon.png"> -->
   <link rel="shortcut icon" type="image/png" href="/images/favicon5.png"> 
-   
+
   </head>
   <body>
     <include src="./partials/header.html"></include>
+
+    <include src="./partials/gallery.html"></include>
     <!-- <include src="./partials/auth.html"></include> -->
 
     <include src="./partials/pagination.html"></include>
@@ -26,7 +28,7 @@
 
     <include src="./partials/footer.html"></include>
 
-
+    <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
     <!-- <script src="./js/buttonUp.js"></script> -->
 
@@ -35,7 +37,7 @@
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
-    
+
       // Your web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyC1ZrE8wfTMzQComHl8bVNa053NAxSTKFI",
@@ -44,12 +46,13 @@
         projectId: "event-booster-7e923",
         storageBucket: "event-booster-7e923.appspot.com",
         messagingSenderId: "200776246821",
-        appId: "1:200776246821:web:18caae009e19aeb6e241cc"
+        appId: "1:200776246821:web:18caae009e19aeb6e241cc",
       };
-    
+
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
-    </script> -->
-    
+    </script>
+
+    <!-- <script src="./js/buttonUp.js"></script> -->
   </body>
 </html>
