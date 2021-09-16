@@ -21,9 +21,13 @@
   margin: 0;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 17px;
   background-color: var(--main-text-color);
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 .heart-icon {
   padding-left: 6px;
