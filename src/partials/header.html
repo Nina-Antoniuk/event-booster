@@ -1,29 +1,32 @@
 <header class="header"> <!--header-logo-->
-    <!-- <div class="title-form"> -->
-        <h1 class="title">FIND BEST EVENTS <br> AROUND THE WORLD</h1>
-    <!-- </div> -->
-    <form class="search-form" id="search-form"> <!--навіщо тут id?-->
-        <div class="input">
-            <input id="customer-input-js" class="input-search"
+     <!--  logo  -->
+    <div class="conteiner">
+        <!-- <div class="title-form"> -->
+            <h1 class="title">FIND BEST EVENTS <br> AROUND THE WORLD</h1>
+        <!-- </div> -->
+        <form class="search-form" id="search-form"> <!--навіщо тут id?-->
+            <div class="input">
+                <input id="customer-input-js" class="input-search"
                 type="text"
                 name="search" 
                 autocomplete="off" 
                 autofocus
                 pattern="^[a-zA-Z\s]+$"  
                 placeholder="Start searching" /> <!--в pattern треба додати кирилицю-->
-            <svg class="input-icon">
-                <use href="./images/svg/sprits.svg#icon-search"></use>
-            </svg>
-        </div>
-        <div class="input">
-            <select id="country-select-js"  class="input-search" type="text">
-                <option>Choose country</option>
-            </select>
-            <svg class="input-icon">
-                <use href="./images/svg/sprits.svg#icon-select"></use>
-            </svg>
-        </div>
-    </form>
+                <svg class="input-icon">
+                    <use href="./images/svg/sprits.svg#icon-search"></use>
+                </svg>
+            </div>
+            <div class="input">
+                <select id="country-select-js"  class="input-search" type="text">
+                    <option value="none">Choose country</option>
+                </select>
+                <svg class="input-icon">
+                    <use href="./images/svg/sprits.svg#icon-select"></use>
+                </svg>
+            </div>
+        </form>
+        <!-- </div> -->
     </div>
 </header>
 
