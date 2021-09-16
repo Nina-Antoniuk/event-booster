@@ -111,6 +111,14 @@ export default class Pagination {
     this.totalPages = newPages;
   }
 
+  newKeyword(keyword) {
+    this.querySearch = keyword;
+  }
+
+  newCountry(country) {
+    this.queryCountry = country;
+  }
+
   // Add an event handler with a bound context
   bindEvents() {
     this.container.addEventListener("click", this.click.bind(this));
@@ -187,6 +195,8 @@ export default class Pagination {
 // To do an instance of a Class
 const pager = new Pagination({ pages: 12, keyword: "abba" });
 
+pager.newCountry("US");
+pager.newKeyword("Phoenix");
 // Throw counter to first page
 pager.newCurrentPage(1);
 // Throw total pages
