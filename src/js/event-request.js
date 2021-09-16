@@ -1,36 +1,36 @@
 import { debounce } from "debounce";
 import { API_KEY, BASE_URL } from './consts'
 import refs from './refs';
+import Notify from 'simple-notify'
 
 refs.customerInput.addEventListener('input', debounce(onInputChange, 1000))
 
 function onInputChange(e) {
-  return fetchEvents(e.target.value)
-         .then(data => {
-           console.log('data', data._embedded.events)
-           return data._embedded.events
-         })
-         .catch(console.log)
+  return fetchEvents(e.target.value, refs.chooseCountry.value)
+    .then(data => {
+      if(!data._embedded) {
+        new Notify({
+          status: 'error',
+          title: 'Тo match was found!',
+          text: 'Try again',
+          effect: 'slide',
+          type: 3
+        })
+        return
+      }
+      console.log('new events', data._embedded.events); //render
+      return data._embedded.events
+    })
+    .catch(console.log)
 }
 
 
-function fetchEvents(keyword) {
-  return  fetch(`${BASE_URL }?keyword=${keyword}&apikey=${API_KEY}`)
+function fetchEvents(keyword, countryCode = '') {
+  return fetch(`${BASE_URL}?keyword=${keyword}&locale=${countryCode}&apikey=${API_KEY}`)
     .then(response => response.json())
 }
 
-// countryCode=${countryCode}&
 
 
 // try{}.catch{}
-// передати дані в запит
-// поставити дебоунс
-// поставити прослуховувач подій
 
-
-// function fetchEvents() {
-//   return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=Iks6oDIpGdxCIBqWeGHShYrO2fcgxZEd`)
-//     .then(data => data.json())
-//     .then(data => console.log(data))
-//     .catch(err => console.log(err))
-// }
