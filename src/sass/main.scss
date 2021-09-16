@@ -8,8 +8,15 @@
 // base
 @import "./base/common";
 @import "./base/container";
+@import "./base/scroll";
 
 // components
 @import "./components/pagination";
 @import "./components/footer";
 @import "./components/buttonUp";
+@import "./components/spinner";
+@import "./components/button-up";
+
+// layout
+@import "./layout/header";
+@import "./layout/section-pagination";

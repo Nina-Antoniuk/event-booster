@@ -1,4 +1,4 @@
-const countries = [
+export const countries = [
   {
     "id": 124,
     "name": "Canada"
@@ -120,4 +120,3 @@ const countries = [
     "name": "Serbia"
   }
 ]
-export default countries;
