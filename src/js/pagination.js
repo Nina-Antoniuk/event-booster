@@ -1,6 +1,7 @@
 import { API_KEY, BASE_URL } from "./consts";
 import refs from "./refs";
 import renderGalleryMarkup from "./rendergallery";
+import { spinner } from "./spinner";
 class Pagination {
   constructor({
     container = ".pagination",
@@ -156,7 +157,7 @@ class Pagination {
     this.newCurrentPage(target.textContent);
 
     // Add a loading spinner
-    refs.body.classList.add("loading");
+    spinner.loading();
 
     // Making css class to new element
     target.classList.add(activeClass);
@@ -192,10 +193,8 @@ class Pagination {
       const pages = response.page.totalPages;
       this.newTotalPages(pages);
 
-      setTimeout(() => {
-        this.render();
-        refs.body.classList.remove("loading");
-      }, 350);
+      this.render();
+      spinner.loaded();
 
       // Returning an array of events
       // console.log(response._embedded.events);
