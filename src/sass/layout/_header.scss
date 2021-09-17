@@ -30,43 +30,43 @@
   background-image: url(../images/header/mobile/logo.png);
 
   @media screen and (min-device-pixel-ratio: 2),
-  screen and (-webkit-min-device-pixel-ratio: 2),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
-  background-image: url(../images/header/mobile/logo@2px.png);
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/header/mobile/logo@2px.png);
   }
 
   @media screen and (min-width: 768px) {
-  width: 180px;
-  height: 150px;
-  background-repeat: no-repeat;
-  background-image: url(../images/header/tablet/logo.png);
-  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    width: 180px;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-image: url(../images/header/tablet/logo.png);
+    -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (-webkit-min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    background-image: url(../images/header/tablet/logo@2px.png);
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/header/tablet/logo@2px.png);
+    }
   }
-}
 
-@media screen and (min-width: 1280px) {
-  width: 238px;
-  height: 200px;
-  background-repeat: no-repeat;
-  background-image: url(../images/header/desktop/logo.png);
-  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  @media screen and (min-width: 1280px) {
+    width: 238px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-image: url(../images/header/desktop/logo.png);
+    -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (-webkit-min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    background-image: url(../images/header/desktop/logo@2px.png);
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/header/desktop/logo@2px.png);
+    }
   }
-}
 }
 
 .title {
@@ -120,13 +120,14 @@
   height: 40px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 30px;
 
   font-size: 16px;
   line-height: 20px;
   border-radius: 20px;
   background: var(--bg-input);
   color: var(--blurry-text-color);
-  -webkit-backdrop-filter: blur(20px);
+  --webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 
   border: 0;
@@ -163,16 +164,31 @@
 
   &__input {
     display: flex;
-    padding-left: 30px;
+    position: relative;
     align-items: center;
     cursor: pointer;
-    border-radius: 25px 25px 0px 0px;
-    border-bottom: 1px solid #939393;
+    border-radius: 25px;
+  }
+
+  .open &__input {
+    border-radius: 25px 25px 0 0;
+  }
+
+  .open &__input::after {
+    content: "";
+    position: absolute;
+    left: 25px;
+    right: 25px;
+    bottom: 0px;
+    height: 1px;
+    background: var(--blurry-text-color);
   }
 
   &__dropdown {
     display: none;
     position: absolute;
+    padding-top: 5px;
+    padding-left: 0px;
     left: 0;
     right: 0;
     height: 210px;
@@ -181,19 +197,33 @@
   }
 
   &__dropdown::-webkit-scrollbar {
-    width: 3px
+    width: 3px;
+  }
+
+  &__dropdown::-webkit-scrollbar-track {
+    border-width: 0;
+    background-color: var(--bg-input);
+    backdrop-filter: blur(20px);
   }
 
   &__dropdown::-webkit-scrollbar-thumb {
-    background: var(--bg-input);
+    border-width: 1px 1px 1px 2px;
+    background: var(--blurry-text-color);
     border-radius: 20px;
+
+    background-image: url(../images/scroll.png);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__dropdown::-webkit-scrollbar-thumb:hover {
+    background: var(--blurry-text-color);
   }
 
   &__list {
     padding: 0;
     margin: 0;
-    list-style: none
-    ;
+    list-style: none;
   }
 
   &__item {
@@ -201,8 +231,7 @@
     height: 25px;
     padding-left: 30px;
     align-items: center;
-    color: #CCCCCC;
-    // border-bottom: 1px solid #ccc;
+    color: #cccccc;
 
     &.selected {
       background-color: var(--accent-text-color);
@@ -211,7 +240,7 @@
     &:hover {
       background-color: var(--accent-text-color);
       cursor: pointer;
-      transition: .15s background-color ease-in;
+      transition: 0.15s background-color ease-in;
     }
   }
 }
