@@ -32,3 +32,25 @@ function createMarkup(country) {
 
 // }
 
+// refs.chooseCountrySvg.onclick = ()=>{
+//   refs.chooseCountry.size = refs.chooseCountry.length;
+//   refs.chooseCountry.focus();
+//   console.log(refs.chooseCountry.length)
+//   console.log(refs.chooseCountry.size)
+// };
+
+// refs.chooseCountry.onchange = refs.chooseCountry.onclick = refs.chooseCountry.onblur = ()=>{
+//   refs.chooseCountry.size = 1;
+// };
+
+// let toggleState = false
+// function toggle() {
+//   refs.chooseCountrySvg.addEventListener('click', () => {
+
+//         // toggleState = !toggleState
+//             // return toggleState ? (refs.chooseCountry.size = refs.chooseCountry.length) : (refs.chooseCountry.size = 1)
+//             refs.chooseCountry.size = refs.chooseCountry.length;
+//             refs.chooseCountry.focus();
+//         })
+// }
+// refs.chooseCountrySvg.onclick = toggle

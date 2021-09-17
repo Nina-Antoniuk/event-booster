@@ -1,6 +1,6 @@
 import { API_KEY, BASE_URL } from "./consts";
 import refs from "./refs";
-import renderGalleryMarkup from "./renderGalleryMarkup";
+import renderGalleryMarkup from "./rendergallery";
 class Pagination {
   constructor({
     container = ".pagination",
@@ -22,7 +22,7 @@ class Pagination {
 
   // Go to the top of the page
   goTop() {
-    refs.body.scrollIntoView({
+    refs.galleryList.scrollIntoView({
       block: "start",
       behavior: "smooth",
     });
