@@ -22,7 +22,7 @@ class Pagination {
 
   // Go to the top of the page
   goTop() {
-    refs.body.scrollIntoView({
+    refs.galleryList.scrollIntoView({
       block: "start",
       behavior: "smooth",
     });
