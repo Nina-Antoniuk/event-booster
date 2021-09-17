@@ -1,7 +1,8 @@
+import Notify from 'simple-notify'
 import { debounce } from "debounce";
 import { API_KEY, BASE_URL } from './consts'
 import refs from './refs';
-import Notify from 'simple-notify'
+import renderGalleryMarkup from './renderGalleryMarkup';
 
 refs.customerInput.addEventListener('input', debounce(onInputChange, 1000))
 
@@ -21,12 +22,16 @@ function onInputChange(e) {
       console.log('new events', data._embedded.events); //render
       return data._embedded.events
     })
+    .then(data => {
+      console.log('data', data);
+      return renderGalleryMarkup(data)
+    })
     .catch(console.log)
 }
 
 
 function fetchEvents(keyword, countryCode = '') {
-  return fetch(`${BASE_URL}?keyword=${keyword}&locale=${countryCode}&apikey=${API_KEY}`)
+  return fetch(`${BASE_URL}?keyword=${keyword}&countryCode=${countryCode}&apikey=${API_KEY}`)
     .then(response => response.json())
 }
 
