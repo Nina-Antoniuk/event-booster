@@ -1,6 +1,8 @@
 // import { countries } from './countries';
 
-const getTemplate = (data = [], placeholder, selectedId) => {
+const getTemplate = (data = [], placeholder) => {
+    let text = placeholder ?? 'Placeholder по умолчанию'
+
     const countriesSort = data.sort((a, b) => (a.name > b.name) ? 1 : -1)
     const items =  countriesSort.map(item => {
             return createMarkup(item)
@@ -14,7 +16,7 @@ const getTemplate = (data = [], placeholder, selectedId) => {
     }
     return `
         <div class="select__input input-search" data-type="input">
-            <span data-type="value">${placeholder}</span>
+            <span data-type="name">${text}</span>
             <svg class="input-icon" id="country-select-svg">
                 <use href="./images/svg/sprits.svg#icon-select-down" data-type="arrow"></use>
             </svg>
@@ -31,7 +33,7 @@ export class Select {
     constructor(selector, options) {
         this.elem = document.querySelector(selector)
         this.options = options
-        this.selectedId = options.selectedId
+        this.selectedId = null
 
         this.#render()
         this.#setup()
@@ -40,14 +42,14 @@ export class Select {
     #render() {
         const {placeholder, data} = this.options
         this.elem.classList.add('select')
-        this.elem.innerHTML = getTemplate(data, placeholder, this.selectedId)
+        this.elem.innerHTML = getTemplate(data, placeholder)
     }
 
     #setup() {
         this.clickHandler = this.clickHandler.bind(this)
         this.elem.addEventListener('click', this.clickHandler)
         this.arrow = this.elem.querySelector('[data-type="arrow"]')
-        this.value = this.elem.querySelector('[data-type="value"]')
+        this.name = this.elem.querySelector('[data-type="name"]')
     }
 
     clickHandler(event) {
@@ -71,9 +73,14 @@ export class Select {
 
     select(id) {
         this.selectedId = id
-        console.log(this.selectedId)
-        this.value.textContent = this.current.name
-        // console.log(this.$value.textContent)
+        this.name.textContent = this.current.name
+        console.log(this.name.textContent)
+        this.elem.querySelectorAll('[data-type="item"]').forEach(el => {
+            el.classList.remove('selected')
+        })
+        this.elem.querySelector(`[data-id="${id}"]`).classList.add('selected')    
+
+        this.close()
     }
 
     toggle() {

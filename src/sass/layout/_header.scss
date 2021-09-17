@@ -166,15 +166,27 @@
     padding-left: 30px;
     align-items: center;
     cursor: pointer;
+    border-radius: 25px 25px 0px 0px;
+    border-bottom: 1px solid #939393;
   }
 
   &__dropdown {
+    display: none;
     position: absolute;
     left: 0;
     right: 0;
     height: 210px;
     overflow-y: auto;
-    border-radius: 0
+    border-radius: 0px 0px 25px 25px;
+  }
+
+  &__dropdown::-webkit-scrollbar {
+    width: 3px
+  }
+
+  &__dropdown::-webkit-scrollbar-thumb {
+    background: var(--bg-input);
+    border-radius: 20px;
   }
 
   &__list {
@@ -189,7 +201,12 @@
     height: 25px;
     padding-left: 30px;
     align-items: center;
-    border-bottom: 1px solid #ccc;
+    color: #CCCCCC;
+    // border-bottom: 1px solid #ccc;
+
+    &.selected {
+      background-color: var(--accent-text-color);
+    }
 
     &:hover {
       background-color: var(--accent-text-color);
