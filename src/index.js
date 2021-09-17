@@ -2,7 +2,7 @@ import "simple-notify/dist/simple-notify.min.css";
 import "./sass/main.scss";
 import "./js/get-countries";
 import "./js/event-request";
-import fetchApi from "./js/fetchapi";
+import fetchApi from "./js/fetchgalleryapi";
 import renderGalleryMarkup from "./js/rendergallery";
 import Pagination from "./js/pagination";
 

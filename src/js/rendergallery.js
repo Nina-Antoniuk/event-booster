@@ -1,4 +1,5 @@
 import refs from "./refs";
+import sprits from "../images/svg/sprits.svg";
 
 export default function renderGalleryMarkup(events) {
   const markup = events
@@ -20,9 +21,11 @@ export default function renderGalleryMarkup(events) {
           <p class='gallery__meta_name gallery_margin'>${name}</p>
           <p class='gallery__meta_date gallery_margin'>${localDate}</p>
           <div class='flex-svg'>
-            <svg class="icon">
-              <use href="./images/svg/sprits.svg#icon-ticket"></use>
-            </svg>
+          <div>
+          <svg class='icon'>
+          <use href="${sprits}#icon-location"></use>
+          </svg>
+          </div>
           <p class='gallery__meta_place gallery_margin'>${venues[0].name}</p>
           </div>
         </div>
