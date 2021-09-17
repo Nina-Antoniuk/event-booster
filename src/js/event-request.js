@@ -1,11 +1,9 @@
-import Notify from 'simple-notify'
 import { API_KEY, BASE_URL } from './consts'
 import refs from './refs';
 import { pager } from "./pagination";
 import renderGalleryMarkup from './rendergallery';
+import { showNotification, closeNotification } from './notification';
 
-
-let notify
 
 refs.searchForm.addEventListener('submit', onInputChange)
 
@@ -20,7 +18,6 @@ function onInputChange(e) {
       }
     })
     .then(data => {
-      console.log('new data', data.events);
       pager.letsGo({
         keyword: refs.customerInput.value,
         countryCode: refs.chooseCountry.value,
@@ -29,7 +26,7 @@ function onInputChange(e) {
       return renderGalleryMarkup(data.events)
     })
     .catch(err => {
-      showNotification('error', 'Something went wrong')
+      showNotification('error', 'Something went wrong', 'Try again')
       setTimeout(closeNotification, 2500)
     })
 }
@@ -41,19 +38,7 @@ function fetchEvents(keyword = '', countryCode = '') {
 }
 
 
-function showNotification(status, title) {
-  return notify = new Notify({
-          status: status,
-          title: title,
-          text: 'Try again',
-          effect: 'slide',
-          type: 3
-        })
-}
 
-function closeNotification() {
-  notify.close()
-}
 
 
 
