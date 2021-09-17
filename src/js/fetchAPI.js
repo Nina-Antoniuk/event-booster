@@ -1,6 +1,5 @@
 import { API_KEY, BASE_URL } from "./consts";
-import refs from './refs';
-import renderGalleryMarkup from './rendergallery'
+
 
 
 export default function fetchApi() {
