@@ -1,6 +1,7 @@
 import Notify from 'simple-notify'
 import { API_KEY, BASE_URL } from './consts'
 import refs from './refs';
+import { pager } from "./pagination";
 import renderGalleryMarkup from './renderGalleryMarkup';
 
 
@@ -13,15 +14,21 @@ function onInputChange(e) {
 
   return fetchEvents(refs.customerInput.value, refs.chooseCountry.value)
     .then(data => {
-      console.log(refs.customerInput.value, refs.chooseCountry.value);
-      return data._embedded.events
+      return {
+        page: data.page,
+        events: data._embedded.events
+      }
     })
     .then(data => {
-      console.log('data', data);
-      return renderGalleryMarkup(data)
+      console.log('new data', data.events);
+      pager.letsGo({
+        keyword: refs.customerInput.value,
+        countryCode: refs.chooseCountry.value,
+        pages: data.page.totalPages,
+      });
+      return renderGalleryMarkup(data.events)
     })
     .catch(err => {
-      console.log(err);
       showNotification('error', 'Something went wrong')
       setTimeout(closeNotification, 2500)
     })
