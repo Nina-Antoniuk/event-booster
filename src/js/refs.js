@@ -1,4 +1,6 @@
 const refs = {
+  body: document.querySelector("body"),
+  
   authBtn: document.querySelector('.auth-btn'),
   signInBtn: document.querySelector('.signin-btn'),
   iconAuthOn: document.querySelector('.icon-auth-on'),
@@ -13,6 +15,8 @@ const refs = {
   customerInput: document.querySelector('#customer-input-js'),
   chooseCountry: document.querySelector('#country-select-js') ,
   
+  customerInput: document.querySelector("#customer-input-js"),
+  chooseCountry: document.querySelector("#country-select-js"),
   galleryList: document.querySelector(".gallery"),
   
   footerSection: document.querySelector('.footer__section'),
