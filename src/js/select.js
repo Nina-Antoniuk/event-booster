@@ -1,4 +1,3 @@
-// import { countries } from './countries';
 import sprits from "../images/svg/sprits.svg";
 
 const getTemplate = (data = [], placeholder) => {
@@ -14,7 +13,7 @@ const getTemplate = (data = [], placeholder) => {
 
   function createMarkup(item) {
     return `
-            <li class="select__item" data-type="item" data-id="${item.id}" >${item.name}</li>
+            <li class="select__item" data-type="item" data-id="${item.countryCode}" >${item.name}</li>
         `;
   }
   return `
@@ -72,16 +71,13 @@ export class Select {
 
   get current() {
     return this.options.data.find(
-      (item) => item.id === Number(this.selectedId)
+      (item) => item.countryCode === this.selectedId
     );
   }
 
   select(id) {
     this.selectedId = id;
-    console.log("id", this.current.name);
-    console.log("id", this.selectedId);
     this.name.textContent = this.current.name;
-    console.log(this.name.textContent);
     this.elem.querySelectorAll('[data-type="item"]').forEach((el) => {
       el.classList.remove("selected");
     });
