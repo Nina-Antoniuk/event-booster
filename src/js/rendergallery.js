@@ -11,8 +11,8 @@ export default function renderGalleryMarkup(events) {
         _embedded: { venues },
         images,
       }) => {
-        return `<li class ='gallery__item-card list'>
-     
+        return `<li data-hystmodal="#myModal" class ='gallery__item-card list'>
+
         <div class='gallery__image'>
           <img class='gallery__img' src='${images[0].url}' alt='${name}' />
         </div>
@@ -26,7 +26,7 @@ export default function renderGalleryMarkup(events) {
           <p class='gallery__meta_place gallery_margin'>${venues[0].name}</p>
           </div>
         </div>
-      
+
   </li>`;
       }
     )
