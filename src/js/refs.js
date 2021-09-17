@@ -15,6 +15,7 @@ const refs = {
   galleryList: document.querySelector(".gallery"),
   customerInput: document.querySelector("#customer-input-js"),
   chooseCountry: document.querySelector("#country-select-js"),
+  chooseCountrySvg: document.querySelector("#country-select-svg"),
 };
 
 export default refs;
