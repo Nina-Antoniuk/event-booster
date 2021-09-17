@@ -1,36 +1,17 @@
-// export default function fetchApi() {
-//   const API_KEY = "Iks6oDIpGdxCIBqWeGHShYrO2fcgxZEd";
-//   const BASE_URL = "https://app.ticketmaster.com/discovery/v2";
+import { API_KEY, BASE_URL } from "./consts";
 
-//   return fetch(`${BASE_URL}/suggest.json?&apikey=${API_KEY}`)
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       }
-//       throw new Error("Oops, something went wrong");
-//     })
 
-//     .then((data) => {
-//       return data._embedded;
-//     })
-//     .then(console.log)
-
-//     .catch((error) => console.log("Error:", error));
-// }
 
 export default function fetchApi() {
-  const API_KEY = "Iks6oDIpGdxCIBqWeGHShYrO2fcgxZEd";
-  const BASE_URL = "https://app.ticketmaster.com/discovery/v2";
-
-  return fetch(`${BASE_URL}/events.json?&apikey=${API_KEY}`)
+  return fetch(`${BASE_URL}?&apikey=${API_KEY}`)
     .then((response) => {
       if (response.ok) {
         return response.json();
       }
-      throw new Error("Oops, something went wrong");
+      throw new Error("Oops, something went wrong"); //тут не потрібен текст
     })
-    .then((data) => {
-      return data._embedded.events;
+    .then(data => {
+      return data._embedded.events
     })
-    .catch((error) => console.log("Error:", error));
+    .catch(error => console.log("Error:", error)); //замість виводу в консоль зроби нотіфікашку
 }

@@ -1,41 +1,44 @@
-import Notify from 'simple-notify'
-import { debounce } from "debounce";
 import { API_KEY, BASE_URL } from './consts'
 import refs from './refs';
-import renderGalleryMarkup from './renderGalleryMarkup';
+import { pager } from "./pagination";
+import renderGalleryMarkup from './rendergallery';
+import { showNotification, closeNotification } from './notification';
 
-refs.customerInput.addEventListener('input', debounce(onInputChange, 1000))
+
+refs.searchForm.addEventListener('submit', onInputChange)
 
 function onInputChange(e) {
-  return fetchEvents(e.target.value, refs.chooseCountry.value)
+  e.preventDefault();
+
+  return fetchEvents(refs.customerInput.value, refs.chooseCountry.value)
     .then(data => {
-      if(!data._embedded) {
-        new Notify({
-          status: 'error',
-          title: 'Тo match was found!',
-          text: 'Try again',
-          effect: 'slide',
-          type: 3
-        })
-        return
+      return {
+        page: data.page,
+        events: data._embedded.events
       }
-      console.log('new events', data._embedded.events); //render
-      return data._embedded.events
     })
     .then(data => {
-      console.log('data', data);
-      return renderGalleryMarkup(data)
+      pager.letsGo({
+        keyword: refs.customerInput.value,
+        countryCode: refs.chooseCountry.value,
+        pages: data.page.totalPages,
+      });
+      return renderGalleryMarkup(data.events)
     })
-    .catch(console.log)
+    .catch(err => {
+      showNotification('error', 'Something went wrong', 'Try again')
+      setTimeout(closeNotification, 2500)
+    })
 }
 
 
-function fetchEvents(keyword, countryCode = '') {
+function fetchEvents(keyword = '', countryCode = '') {
   return fetch(`${BASE_URL}?keyword=${keyword}&countryCode=${countryCode}&apikey=${API_KEY}`)
     .then(response => response.json())
 }
 
 
 
-// try{}.catch{}
+
+
 

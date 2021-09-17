@@ -1,7 +1,6 @@
 <header class="header">
-  <!--header-logo-->
   <a class="logo" href="./index.html">
-    <img src="./images/svg/logo-text.svg" alt="logo" class="logo-img" />
+    <img class="logo-img" src="./images/svg/logo-text.svg" alt="logo" />
   </a>
 
   <div class="container header-container">
@@ -9,7 +8,7 @@
       FIND BEST EVENTS <br />
       AROUND THE WORLD
     </h1>
-    <form class="search-form">
+    <form class="search-form" id="search-form-js">
       <div class="input">
         <input
           id="customer-input-js"
@@ -21,7 +20,6 @@
           pattern="^[а-яА-ЯёЁa-zA-Z]+$"
           placeholder="Start searching"
         />
-        <!--в pattern треба додати кирилицю-->
         <svg class="input-icon">
           <use href="./images/svg/sprits.svg#icon-search"></use>
         </svg>

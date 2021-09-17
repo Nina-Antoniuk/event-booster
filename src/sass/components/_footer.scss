@@ -1,12 +1,10 @@
-
 .footer__section-container {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-top: 15px;
   padding-bottom: 15px;
-  
+
   color: var(--blurry-text-color);
 
   @media screen and (max-width: 767px) {
@@ -84,10 +82,10 @@
   }
 }
 
-.footer__modal{
+.footer__modal {
   display: none;
 }
-.footer__modal.is-open{
+.footer__modal.is-open {
   display: block;
   position: fixed;
   width: 100%;
@@ -98,32 +96,30 @@
   background-color: var(--bg-input);
   text-align: center;
   padding-top: 40px;
-    & .footer__modal-container{
-      width: 270px;
-      height: 400px;
-        background-color: var(--dark-bg-color);
-        margin-left: calc((100% - 270px) / 2);
-        border-radius: 20px;
-        padding: 20px;
-      @media screen and (min-width: 768px){
-        width: 700px;
-        margin-left: calc((100% - 700px) / 2);
-      }
-      
+  & .footer__modal-container {
+    width: 270px;
+    height: 400px;
+    background-color: var(--dark-bg-color);
+    margin-left: calc((100% - 270px) / 2);
+    border-radius: 20px;
+    padding: 20px;
+    @media screen and (min-width: 768px) {
+      width: 700px;
+      margin-left: calc((100% - 700px) / 2);
     }
+  }
 }
 
-.footer__modal-item{
+.footer__modal-item {
   width: 230px;
   height: 330px;
   background-color: var(--bg-input);
   padding: 10px;
   border-radius: 20px;
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     width: calc((700px - 80px) / 3);
     margin-right: 20px;
   }
-  
 }
 .footer__modal-image {
   margin-left: auto;
@@ -140,7 +136,7 @@
   line-height: 1.25;
   color: var(--light-text-color);
 }
-.footer__modal-text{
+.footer__modal-text {
   font-size: 18px;
   line-height: 1.25;
   color: var(--accent-text-color);
@@ -159,5 +155,15 @@
   width: 30px;
   height: 30px;
   margin-top: 10px;
+  & .icon {
+    fill: var(--accent-text-color);
+  }
+  transition: transform 1000ms linear;
 }
-
+.arrow-left {
+  margin-right: 10px;
+}
+.arrow-left:hover,
+.arrow-right:hover {
+  transform: scale(1.5);
+}
