@@ -1,27 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   
-<header class="header"> <!--header-logo-->
-     <!--  logo  -->
-    <div class="conteiner">
-        <!-- <div class="title-form"> -->
-            <h1 class="title">FIND BEST EVENTS <br> AROUND THE WORLD</h1>
-        <!-- </div> -->
-        <form class="search-form" id="search-form"> <!--навіщо тут id?-->
-            <div class="input">
-                <input id="customer-input-js" class="input-search"
+<header class="header"> 
+    <!--header-logo-->
+    <a class="logo" href="./index.html">
+        <img src="./images/svg/logo-text.svg" alt="logo" class="logo-img"> 
+    </a>
+
+    <div class="container header-container">
+        <h1 class="title">FIND BEST EVENTS <br> AROUND THE WORLD</h1>
+    <form class="search-form">
+        <div class="input">
+            <input id="customer-input-js" class="input-search"
                 type="text"
                 name="search" 
                 autocomplete="off" 
                 autofocus
-                pattern="^[a-zA-Z\s]+$"  
+                pattern="^[а-яА-ЯёЁa-zA-Z]+$"  
                 placeholder="Start searching" /> <!--в pattern треба додати кирилицю-->
                 <svg class="input-icon">
                     <use href="./images/svg/sprits.svg#icon-search"></use>
@@ -29,15 +21,13 @@
             </div>
             <div class="input">
                 <select id="country-select-js"  class="input-search" type="text">
-                    <option value="none">Choose country</option>
+                    <option value="">Choose country</option>
                 </select>
-                <svg class="input-icon">
+                <svg class="input-icon" id="country-select-svg">
                     <use href="./images/svg/sprits.svg#icon-select"></use>
                 </svg>
             </div>
         </form>
     </div>
 </header>
-</body>
-</html>
 

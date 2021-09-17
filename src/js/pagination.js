@@ -1,5 +1,7 @@
 import { API_KEY, BASE_URL } from "./consts";
-export default class Pagination {
+import refs from "./refs";
+import renderGalleryMarkup from "./renderGalleryMarkup";
+class Pagination {
   constructor({
     container = ".pagination",
     page = 1,
@@ -20,7 +22,7 @@ export default class Pagination {
 
   // Go to the top of the page
   goTop() {
-    document.querySelector("body").scrollIntoView({
+    refs.galleryList.scrollIntoView({
       block: "start",
       behavior: "smooth",
     });
@@ -31,14 +33,18 @@ export default class Pagination {
     this.container.classList.add("is-hidden");
   }
 
+  // To show pagination
+  show() {
+    this.container.classList.remove("is-hidden");
+  }
+
   // To create pagination items
   render(pages = this.getTotalPages()) {
-    let { container, currentPage, totalPages } = this;
+    this.newTotalPages(pages);
+    const { container, currentPage, totalPages } = this;
     let links = ``;
 
     const ellipsis = `<span class="pagination__link pagination__link--ellipsis">...</span>`;
-
-    this.newTotalPages(pages);
 
     if (totalPages <= 7) {
       for (let page = 0; page < pages; page += 1) {
@@ -80,7 +86,10 @@ export default class Pagination {
       links += `${ellipsis}<a class="pagination__link" href="#">${totalPages}</a>`;
     }
 
-    if (Number(currentPage) >= Number(totalPages) - 3) {
+    if (
+      Number(totalPages) > 7 &&
+      Number(currentPage) >= Number(totalPages) - 3
+    ) {
       links += `<a class="pagination__link" href="#">1</a>${ellipsis}`;
       for (let page = Number(totalPages) - 5; page < totalPages; page += 1) {
         links += `<a class="pagination__link ${
@@ -91,6 +100,7 @@ export default class Pagination {
 
     container.innerHTML = links;
   }
+
   getCurrentPage() {
     return this.currentPage;
   }
@@ -104,7 +114,23 @@ export default class Pagination {
   }
 
   newTotalPages(newPages) {
+    // API has limitations
+    // "errorsCode": "DIS1035",
+    // "detail": "API Limits Exceeded: Max paging depth exceeded. (page * size) must be less than 1,000",
+    if (newPages > 50) {
+      this.totalPages = 50;
+      return;
+    }
+
     this.totalPages = newPages;
+  }
+
+  newKeyword(keyword) {
+    this.querySearch = keyword;
+  }
+
+  newCountry(country) {
+    this.queryCountry = country;
   }
 
   // Add an event handler with a bound context
@@ -130,25 +156,22 @@ export default class Pagination {
     this.newCurrentPage(target.textContent);
 
     // Add a loading spinner
-    document.querySelector("body").classList.add("loading");
+    refs.body.classList.add("loading");
 
     // Making css class to new element
     target.classList.add(activeClass);
 
     // Making the transition to the page
-    this.goTo(target.textContent);
-
-    this.render();
+    this.goToPage(target.textContent);
   }
 
   // to go to a specific page
-  async goTo(page = 1) {
+  async goToPage(page = 1) {
     if (page > this.getTotalPages()) {
       return `Maximum ${this.getTotalPages()} pages`;
     }
 
     this.newCurrentPage(page);
-    this.render();
 
     await this.getEventsByPagination(page);
 
@@ -159,7 +182,7 @@ export default class Pagination {
   async getEventsByPagination(pageNumber = this.getCurrentPage()) {
     const url = `${BASE_URL}?keyword=${this.querySearch}&countryCode=${
       this.queryCountry
-    }&page=${pageNumber - 1}&apikey=${API_KEY}`;
+    }&apikey=${API_KEY}&page=${pageNumber - 1}`;
 
     try {
       // Send a request
@@ -170,26 +193,27 @@ export default class Pagination {
       this.newTotalPages(pages);
 
       setTimeout(() => {
-        document.querySelector("body").classList.remove("loading");
-      }, 200);
+        this.render();
+        refs.body.classList.remove("loading");
+      }, 350);
 
       // Returning an array of events
-      console.log(response._embedded.events);
+      // console.log(response._embedded.events);
+      renderGalleryMarkup(response._embedded.events);
       return response._embedded.events;
     } catch (error) {
       console.log(error);
     }
   }
+
+  letsGo({ keyword, countryCode, pages } = {}) {
+    this.newCurrentPage(1);
+    this.newKeyword(keyword);
+    this.newCountry(countryCode);
+    this.render(pages);
+    this.show();
+  }
 }
 
 // To do an instance of a Class
-const pager = new Pagination({ pages: 12, keyword: "abba" });
-
-// Call to create 12 pagination items
-pager.render(12);
-
-// Throw counter to first page
-pager.newCurrentPage(1);
-
-// // Get Front Page Events
-pager.goTo(1);
+export const pager = new Pagination();
