@@ -1,41 +1,52 @@
 import Notify from 'simple-notify'
-import { debounce } from "debounce";
 import { API_KEY, BASE_URL } from './consts'
 import refs from './refs';
 import renderGalleryMarkup from './renderGalleryMarkup';
 
-refs.customerInput.addEventListener('input', debounce(onInputChange, 1000))
+
+let notify
+
+refs.searchForm.addEventListener('submit', onInputChange)
 
 function onInputChange(e) {
-  return fetchEvents(e.target.value, refs.chooseCountry.value)
+  e.preventDefault();
+
+  return fetchEvents(refs.customerInput.value, refs.chooseCountry.value)
     .then(data => {
-      if(!data._embedded) {
-        new Notify({
-          status: 'error',
-          title: 'Тo match was found!',
-          text: 'Try again',
-          effect: 'slide',
-          type: 3
-        })
-        return
-      }
-      console.log('new events', data._embedded.events); //render
+      console.log(refs.customerInput.value, refs.chooseCountry.value);
       return data._embedded.events
     })
     .then(data => {
       console.log('data', data);
       return renderGalleryMarkup(data)
     })
-    .catch(console.log)
+    .catch(err => {
+      console.log(err);
+      showNotification('error', 'Something went wrong')
+      setTimeout(closeNotification, 2500)
+    })
 }
 
 
-function fetchEvents(keyword, countryCode = '') {
+function fetchEvents(keyword = '', countryCode = '') {
   return fetch(`${BASE_URL}?keyword=${keyword}&countryCode=${countryCode}&apikey=${API_KEY}`)
     .then(response => response.json())
 }
 
 
+function showNotification(status, title) {
+  return notify = new Notify({
+          status: status,
+          title: title,
+          text: 'Try again',
+          effect: 'slide',
+          type: 3
+        })
+}
 
-// try{}.catch{}
+function closeNotification() {
+  notify.close()
+}
+
+
 
