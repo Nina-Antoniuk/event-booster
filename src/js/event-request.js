@@ -2,7 +2,7 @@ import Notify from 'simple-notify'
 import { API_KEY, BASE_URL } from './consts'
 import refs from './refs';
 import { pager } from "./pagination";
-import renderGalleryMarkup from './renderGalleryMarkup';
+import renderGalleryMarkup from './rendergallery';
 
 
 let notify
