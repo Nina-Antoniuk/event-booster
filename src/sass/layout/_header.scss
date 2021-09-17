@@ -116,13 +116,10 @@
 }
 
 .input-search {
-  justify-content: center;
-  align-items: center;
   width: 270px;
   height: 40px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 30px;
 
   font-size: 16px;
   line-height: 20px;
@@ -146,4 +143,58 @@
   width: 12px;
   height: 12px;
   transition: fill 0.1s linear;
+}
+
+// Plugin Select
+
+.select {
+  width: 100%;
+  position: relative;
+
+  &.open {
+    .select__dropdown {
+      display: block;
+    }
+
+    .select__input {
+      border-bottom: none;
+    }
+  }
+
+  &__input {
+    display: flex;
+    padding-left: 30px;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__dropdown {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 210px;
+    overflow-y: auto;
+    border-radius: 0
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none
+    ;
+  }
+
+  &__item {
+    display: flex;
+    height: 25px;
+    padding-left: 30px;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+
+    &:hover {
+      background-color: var(--accent-text-color);
+      cursor: pointer;
+      transition: .15s background-color ease-in;
+    }
+  }
 }
