@@ -2,6 +2,7 @@ import { API_KEY, BASE_URL } from "./consts";
 import refs from "./refs";
 import renderGalleryMarkup from "./rendergallery";
 import { spinner } from "./spinner";
+import { showNotification, closeNotification } from "./notification";
 class Pagination {
   constructor({
     container = ".pagination",
@@ -197,18 +198,25 @@ class Pagination {
       spinner.loaded();
 
       // Returning an array of events
-      // console.log(response._embedded.events);
       renderGalleryMarkup(response._embedded.events);
       return response._embedded.events;
     } catch (error) {
-      console.log(error);
+      showNotification("error", "Something went wrong", "Try again");
+      setTimeout(closeNotification, 2500);
+      spinner.loaded();
     }
   }
 
-  letsGo({ keyword, countryCode, pages } = {}) {
+  letsGo({ keyword, countryCode, pages } = {}) { 
     this.newCurrentPage(1);
     this.newKeyword(keyword);
     this.newCountry(countryCode);
+
+    if (pages < 2) {
+      this.hide();
+      return;
+    }
+    
     this.render(pages);
     this.show();
   }
