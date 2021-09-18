@@ -75,9 +75,9 @@
   }
 }
 
-.gallery__item-card {
-  background-color: rgb(150, 150, 250);
-}
+// .gallery__item-card {
+//   background-color: rgb(150, 150, 250);
+// }
 
 .gallery__image {
   width: 128px;
@@ -103,4 +103,15 @@
 
 .gallery_margin {
   margin-top: 5px;
+}
+
+.gallery__item-card {
+  transition: transform 1000ms linear;
+  border-radius: 50px 0px 25px 0px;
+}
+
+.gallery__item-card:hover,
+.gallery__item-card:focus {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 8px 10px rgba(220, 86, 197, 0.1);
 }

@@ -1,4 +1,4 @@
-import { resolve, reject } from "./response-on-status";
+import { resolve, reject } from "./response-status-auth";
 
 function authWithEmailAndPassword(email, password, link) {
   return fetch(`${link}`, {
