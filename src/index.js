@@ -4,12 +4,21 @@ import "./js/get-countries";
 import "./js/event-request";
 import fetchApi from "./js/fetchAPI";
 import renderGalleryMarkup from "./js/rendergallery";
-import Pagination from "./js/pagination";
+import { pager } from "./js/pagination";
 
 window.addEventListener("DOMContentLoaded", onPageLoad);
 
 function onPageLoad() {
   fetchApi()
-    .then((events) => renderGalleryMarkup(events))
+    .then((events) => {
+      renderGalleryMarkup(events);
+
+      pager.letsGo({
+        keyword: "",
+        countryCode: "",
+        pages: 50,
+      });
+    })
     .catch((error) => console.log(error));
+  pager.hide();
 }

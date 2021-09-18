@@ -1,8 +1,5 @@
 import { API_KEY, BASE_URL } from "./consts";
-import Notify from "simple-notify";
-import "simple-notify/dist/simple-notify.min.css";
-
-let myNotify;
+import { showNotification, closeNotification } from "./notification";
 
 export default function fetchApi() {
   return fetch(`${BASE_URL}?&apikey=${API_KEY}`)
@@ -16,19 +13,11 @@ export default function fetchApi() {
       return data._embedded.events;
     })
     .catch((error) => {
-      notificationOn("error", "Oops, somethink went wrong");
-      setTimeout(notificationOff, 2000);
+      showNotification(
+        "error",
+        "Please try again!",
+        "Oops, somethink went wrong"
+      );
+      setTimeout(closeNotification, 2000);
     });
-}
-
-function notificationOn(status, text) {
-  return (notify = new Notify({
-    status: status,
-    title: "Try again",
-    text: text,
-  }));
-}
-
-function notificationOff() {
-  myNotify.close();
 }
