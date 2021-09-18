@@ -21,7 +21,9 @@
 }
 
 .auth-btn:hover,
-.signin-btn:hover {
+.signin-btn:hover,
+.auth-btn:focus,
+.signin-btn:focus {
   background-color: var(--accent-text-color);
 }
 

@@ -164,6 +164,8 @@
   margin-right: 10px;
 }
 .arrow-left:hover,
-.arrow-right:hover {
+.arrow-right:hover,
+.arrow-left:focus,
+.arrow-right:focus {
   transform: scale(1.5);
 }
