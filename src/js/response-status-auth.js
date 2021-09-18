@@ -8,7 +8,9 @@ export function resolve() {
     "Authorization completed",
     "Authorization completed"
   );
-  // closeNotification();
+  setTimeout(() => {
+    closeNotification();
+  }, 1500);
 }
 export function reject() {
   showNotification(
@@ -16,7 +18,9 @@ export function reject() {
     "Something went wrong",
     "Mail already exists or the password is incorrect"
   );
-  // closeNotification();
+  setTimeout(() => {
+    closeNotification();
+  }, 1500);
 }
 
 function authDone() {
@@ -25,6 +29,8 @@ function authDone() {
 
   refs.iconAuthDone.classList.add("is-open");
   refs.iconSignInDone.classList.add("is-open");
-  // refs.authBtn.setAttribute("disabled", "true");
-  // refs.signInBtn.setAttribute("disabled", "true");
+  refs.authBtn.setAttribute("disabled", "true");
+  refs.signInBtn.setAttribute("disabled", "true");
+  // refs.searchForm.setAttribute("disabled", "false");
+  // refs.chooseCountry.setAttribute("disabled", "false");
 }
