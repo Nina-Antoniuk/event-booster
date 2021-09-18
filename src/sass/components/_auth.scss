@@ -4,6 +4,7 @@
   border-radius: 10px 0px 10px 0px;
   padding: 8px 10px;
   color: var(--light-text-color);
+  transition: background-color ease var(--duration);
   & .auth-icon,
   & .signin-icon {
     display: block;
@@ -94,6 +95,11 @@
     border-radius: 10px;
     padding: 10px;
     background-color: var(--accent-text-color);
+    transition: background-color ease var(--duration);
+  }
+  & .submit:hover,
+  & .submit:focus {
+    background-color: var(--light-text-color);
   }
 }
 .auth,
