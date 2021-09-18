@@ -106,7 +106,7 @@
 }
 
 .gallery__item-card {
-  transition: transform 1000ms linear;
+  transition: transform linear var(--duration);
   border-radius: 50px 0px 25px 0px;
 }
 
