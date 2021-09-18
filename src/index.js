@@ -4,7 +4,7 @@ import "./js/get-countries";
 import "./js/event-request";
 import "./js/auth.js";
 import "./js/footer-modal.js";
-import fetchApi from "./js/fetchAPI";
+import fetchApi from "./js/fetchapi";
 import renderGalleryMarkup from "./js/rendergallery";
 import { pager } from "./js/pagination";
 import sprits from "./images/svg/sprits.svg";

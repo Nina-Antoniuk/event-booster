@@ -1,6 +1,6 @@
 import refs from "./refs";
 import sprits from "../images/svg/sprits.svg";
-import fetchApi from "./fetchAPI";
+// import fetchApi from "./fetchAPI";
 
 // export default function renderGalleryMarkup({
 //   name,
