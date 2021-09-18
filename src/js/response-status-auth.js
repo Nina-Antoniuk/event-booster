@@ -10,7 +10,7 @@ export function resolve() {
   );
   setTimeout(() => {
     closeNotification();
-  }, 1500);
+  }, 2500);
 }
 export function reject() {
   showNotification(
@@ -20,7 +20,7 @@ export function reject() {
   );
   setTimeout(() => {
     closeNotification();
-  }, 1500);
+  }, 2500);
 }
 
 function authDone() {
