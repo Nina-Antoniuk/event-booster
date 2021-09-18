@@ -1,5 +1,5 @@
 import refs from "./refs.js";
-import { logInFetchLink, signInFetchLink } from "./consts.js";
+import { LOGIN_FETCH_LINK, SIGNIN_FETCH_LINK } from "./consts.js";
 import authWithEmailAndPassword from "./fetch-auth.js";
 
 let email = "";
@@ -22,7 +22,7 @@ function onSignInBtnClick(e) {
 function authFormSubmit(e) {
   e.preventDefault();
   getEmailAndPassword(e);
-  authWithEmailAndPassword(email, password, logInFetchLink);
+  authWithEmailAndPassword(email, password, LOGIN_FETCH_LINK);
 
   clearEmailAndPassword(e);
   refs.formAuth.classList.toggle("is-open");
@@ -31,7 +31,7 @@ function authFormSubmit(e) {
 function signInFormSubmit(e) {
   e.preventDefault();
   getEmailAndPassword(e);
-  authWithEmailAndPassword(email, password, signInFetchLink);
+  authWithEmailAndPassword(email, password, SIGNIN_FETCH_LINK);
   clearEmailAndPassword(e);
   refs.formSignIn.classList.toggle("is-open");
 }
