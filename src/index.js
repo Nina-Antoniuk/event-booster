@@ -4,6 +4,7 @@ import "./js/get-countries";
 import "./js/event-request";
 import fetchApi from "./js/fetchapi";
 import renderGalleryMarkup from "./js/rendergallery";
+import "./js/modal";
 import Pagination from "./js/pagination";
 
 window.addEventListener("DOMContentLoaded", onPageLoad);
