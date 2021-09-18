@@ -207,7 +207,7 @@ class Pagination {
     }
   }
 
-  letsGo({ keyword, countryCode, pages } = {}) { 
+  letsGo({ keyword, countryCode, pages } = {}) {
     this.newCurrentPage(1);
     this.newKeyword(keyword);
     this.newCountry(countryCode);
@@ -216,7 +216,7 @@ class Pagination {
       this.hide();
       return;
     }
-    
+
     this.render(pages);
     this.show();
   }
