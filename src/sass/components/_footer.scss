@@ -116,6 +116,7 @@
   background-color: var(--bg-input);
   padding: 10px;
   border-radius: 20px;
+  transition: box-shadow ease var(--duration);
   @media screen and (min-width: 768px) {
     width: calc((700px - 80px) / 3);
     margin-right: 20px;
