@@ -1,25 +1,22 @@
 import refs from "./refs.js";
-import Notify from "simple-notify";
-import "simple-notify/dist/simple-notify.min.css";
+import { showNotification, closeNotification } from "./notification";
 
 export function resolve() {
   authDone();
-  new Notify({
-    status: "success",
-    title: "Authorization completed",
-    text: "Authorization completed",
-    effect: "fade",
-    type: 1,
-  });
+  showNotification(
+    "success",
+    "Authorization completed",
+    "Authorization completed"
+  );
+  // closeNotification();
 }
 export function reject() {
-  new Notify({
-    status: "error",
-    title: "Try again",
-    text: "Try again",
-    effect: "fade",
-    type: 1,
-  });
+  showNotification(
+    "error",
+    "Something went wrong",
+    "Mail already exists or the password is incorrect"
+  );
+  // closeNotification();
 }
 
 function authDone() {

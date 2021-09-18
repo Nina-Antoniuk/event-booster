@@ -1,5 +1,5 @@
 import refs from "./refs.js";
-import { logInFetchLink, signInFetchLink } from "./linksForFatch.js";
+import { logInFetchLink, signInFetchLink } from "./consts.js";
 import authWithEmailAndPassword from "./fetch-auth.js";
 
 let email = "";
