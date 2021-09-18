@@ -4,17 +4,26 @@ import "./js/get-countries";
 import "./js/event-request";
 import "./js/auth.js";
 import "./js/footer-modal.js";
-import fetchApi from "./js/fetchapi";
+import fetchApi from "./js/fetchAPI";
 import renderGalleryMarkup from "./js/rendergallery";
-import Pagination from "./js/pagination";
+import { pager } from "./js/pagination";
 import sprits from "./images/svg/sprits.svg";
 
 window.addEventListener("DOMContentLoaded", onPageLoad);
 
 function onPageLoad() {
   fetchApi()
-    .then((events) => renderGalleryMarkup(events))
+    .then((events) => {
+      renderGalleryMarkup(events);
+
+      pager.letsGo({
+        keyword: "",
+        countryCode: "",
+        pages: 50,
+      });
+    })
     .catch((error) => console.log(error));
+  pager.hide();
 }
 
 $(document).ready(function () {
