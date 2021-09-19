@@ -43,6 +43,7 @@
 .footer__section-container:hover,
 .footer__section-container:focus {
   color: var(--light-text-color);
+  cursor: pointer;
   & .heart-icon {
     -webkit-animation: animateScale 500ms infinite cubic-bezier(0.4, 0, 0.2, 1);
     animation: animateScale 500ms infinite cubic-bezier(0.4, 0, 0.2, 1);
