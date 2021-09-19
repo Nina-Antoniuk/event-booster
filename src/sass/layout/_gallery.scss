@@ -138,3 +138,45 @@
   transform: scale(1.05);
   box-shadow: 10px 10px 8px 10px rgba(220, 86, 197, 0.1);
 }
+
+// Анимация при первом появлении
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.gallery {
+  -webkit-animation: fade-in 3s linear; /* Safari 4+ */
+  -moz-animation: fade-in 3s linear; /* Fx 5+ */
+  -o-animation: fade-in 3s linear; /* Opera 12+ */
+  animation: fade-in 3s linear; /* IE 10+, Fx 29+ */
+}
