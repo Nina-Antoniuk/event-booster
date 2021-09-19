@@ -1,6 +1,11 @@
 import refs from "./refs";
 import { searchCardsLinks } from "./modal";
 import sprits from "../images/svg/sprits.svg";
+// import fetchApi from "./fetchAPI";
+
+
+refs.galleryList.addEventListener('click', searchCardsLinks)
+
 
 export default function renderGalleryMarkup(events) {
   refs.galleryList.innerHTML = createGalleryMarkup(events);

@@ -77,9 +77,9 @@
   }
 }
 
-// .gallery__item-card {
-//   background-color: rgb(150, 150, 250);
-// }
+.gallery__item-card {
+  position: relative;
+}
 
 .pseudo::after {
   content: "";
