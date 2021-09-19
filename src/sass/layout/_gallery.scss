@@ -91,10 +91,14 @@
   position: absolute;
   top: -9px;
   right: -10px;
-  // display: flex;
-  // justify-content: center;
 
   @media screen and (min-width: 768px) {
+    width: 153px;
+    height: 143px;
+    top: -13px;
+    right: 0;
+  }
+  @media screen and (min-width: 1280px) {
     width: 153px;
     height: 143px;
     top: -13px;
@@ -175,8 +179,8 @@
 }
 
 .gallery {
-  -webkit-animation: fade-in 1.5s linear; /* Safari 4+ */
-  -moz-animation: fade-in 1.5s linear; /* Fx 5+ */
-  -o-animation: fade-in 1.5s linear; /* Opera 12+ */
-  animation: fade-in 1.5s linear; /* IE 10+, Fx 29+ */
+  -webkit-animation: fade-in 2s linear; /* Safari 4+ */
+  -moz-animation: fade-in 2s linear; /* Fx 5+ */
+  -o-animation: fade-in 2s linear; /* Opera 12+ */
+  animation: fade-in 2s linear; /* IE 10+, Fx 29+ */
 }
