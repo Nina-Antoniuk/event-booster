@@ -31,6 +31,6 @@ function authDone() {
   refs.iconSignInDone.classList.add("is-open");
   refs.authBtn.setAttribute("disabled", "true");
   refs.signInBtn.setAttribute("disabled", "true");
-  // refs.searchForm.setAttribute("disabled", "false");
-  // refs.chooseCountry.setAttribute("disabled", "false");
+  refs.searchForm.setAttribute("enabled", "true");
+  refs.chooseCountry.setAttribute("enabled", "true");
 }
