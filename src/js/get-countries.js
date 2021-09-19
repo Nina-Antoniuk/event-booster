@@ -1,8 +1,6 @@
 import { countries } from './countries';
 import refs from './refs';
 
-// refs.chooseCountry.addEventListener('click', openList); 
-
 openCountriesList()
 
 function openCountriesList() {
@@ -12,11 +10,11 @@ function openCountriesList() {
 function createOptionsMarkup() {
   const countriesSort = countries.sort((a, b) => (a.name > b.name) ? 1 : -1)
   return countriesSort.map(country => {
-    return createMarkup(country)
+    return createItemMarkup(country)
   }).join('');
 }
 
-function createMarkup(country) {
+function createItemMarkup(country) {
   return `<option value="${country.countryCode}">${country.name}</option>`
 }
 
