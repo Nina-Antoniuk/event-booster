@@ -61,6 +61,8 @@
   grid-row-gap: 14px;
   text-align: center;
   justify-content: center;
+  position: relative;
+  padding-top: 13px;
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
@@ -78,6 +80,27 @@
 // .gallery__item-card {
 //   background-color: rgb(150, 150, 250);
 // }
+
+.pseudo::after {
+  content: "";
+  display: block;
+  width: 109px;
+  height: 101px;
+  border: 1px solid var(--accent-text-color);
+  border-radius: 50px 0px;
+  position: absolute;
+  top: -9px;
+  right: -10px;
+  // display: flex;
+  // justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    width: 153px;
+    height: 143px;
+    top: 0;
+    right: -14px;
+  }
+}
 
 .gallery__image {
   width: 128px;

@@ -11,22 +11,21 @@ export default function renderGalleryMarkup(events) {
   refs.galleryList.innerHTML = createGalleryMarkup(events);
 }
 
-
 function createGalleryMarkup(events) {
-  return  events.map(createGalleryElementMarkup).join("");
+  return events.map(createGalleryElementMarkup).join("");
 }
 
 // винести шаблон окремим файлом
 
-function createGalleryElementMarkup( {
-        name,
-        dates: {
-          start: { localDate },
-        },
-        _embedded: { venues },
-        images,
-      } ) {
-        return `<li class ='gallery__item-card list'>
+function createGalleryElementMarkup({
+  name,
+  dates: {
+    start: { localDate },
+  },
+  _embedded: { venues },
+  images,
+}) {
+  return `<li class ='gallery__item-card list pseudo'>
                   <a class='set-of-cards__link' href='#backdrop' data-modal-open="">
                       <div class='gallery__image'>
                         <img class='gallery__img' src='${images[1].url}' alt='${name}' />
@@ -45,4 +44,4 @@ function createGalleryElementMarkup( {
                       </div>
                     </a>
                   </li>`;
-    }
+}
