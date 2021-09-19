@@ -13,10 +13,11 @@ export default function renderGalleryMarkup(events) {
         images,
       }) => {
         return `<li class ='gallery__item-card list'>
+        <a class='set-of-cards__link' href='#backdrop' data-modal-open="">
         <div class='gallery__image'>
-          <a class='set-of-cards__link' href='#backdrop' data-modal-open="">
+
           <img class='gallery__img'  src='${images[0].url}' alt='${name}'/>
-          </a>
+
         </div>
         <div class='gallery__meta'>
           <p class='gallery__meta_name gallery_margin'>${name}</p>
@@ -28,6 +29,7 @@ export default function renderGalleryMarkup(events) {
           <p class='gallery__meta_place gallery_margin'>${venues[0].name}</p>
           </div>
         </div>
+        </a>
   </li>`;
       }
     )
