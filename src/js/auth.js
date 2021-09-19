@@ -77,9 +77,8 @@ function setOnLocalStorage(email, password) {
 function inWithDataLocalStorage() {
   const localStorageData = localStorage.getItem("data");
   if (localStorageData) {
-    const obg = JSON.parse(localStorageData);
-    console.log(obg.email);
-    authWithEmailAndPassword(obg.email, obg.password, SIGNIN_FETCH_LINK);
+    const data = JSON.parse(localStorageData);
+    authWithEmailAndPassword(data.email, data.password, SIGNIN_FETCH_LINK);
   }
   return;
 }
