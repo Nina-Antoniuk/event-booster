@@ -1,16 +1,14 @@
 import { countries } from './countries';
 import refs from './refs';
-// один раз сходити за країнами
-// відмалювати список 1 раз при завантаженні сторінки (прихований)
-// при кліці список має з'являтися
+// один раз сходити за країнами +
+// відмалювати список 1 раз при завантаженні сторінки (прихований) +
+// при кліці список має з'являтися +
 // при кліці поза межами списку список повинен закриватись
 // 
 
-const chooseCountry = document.querySelector('.coose-country-js'); //div pos: rel;
+const chooseCountry = document.querySelector('.coose-country-js');
 
-
-
-renderCountriesList();
+createCountriesList();
 
 const countriesList = document.querySelector('.countries-list');
 
@@ -21,10 +19,11 @@ chooseCountry.addEventListener('click', openCountriesList);
 function openCountriesList(e) {
   countriesList.classList.add('visible');
 
-  document.addEventListener('click', closeDropdownList) 
+  // document.addEventListener('click', closeDropdownList) 
 }
 
 function closeDropdownList(e) {
+  refs.chooseCountry.innerHTML = ''
   countriesList.classList.remove('visible')
   // if (countriesList.classList.includes(visible)) {
   //   console.log('yes');
@@ -34,7 +33,7 @@ function closeDropdownList(e) {
   // }
 }
     
-function renderCountriesList() {
+function createCountriesList() {
   chooseCountry.insertAdjacentHTML('beforeend', `<ul tabindex="4" class="countries-list list">${createListMarkup()}</ul>`)
 }
 
@@ -46,5 +45,5 @@ function createListMarkup() {
 }
 
 function createItemMarkup(country, index) {
-  return `<li tabindex="index + 4" class="counties-list__item">${country.name}</li>`
+  return `<li tabindex="index" class="counties-list__item">${country.name}</li>`
 }
