@@ -1,40 +1,39 @@
 import { countries } from './countries';
 import refs from './refs';
-// один раз сходити за країнами +
-// відмалювати список 1 раз при завантаженні сторінки (прихований) +
-// при кліці список має з'являтися +
-// при кліці поза межами списку список повинен закриватись
-// 
 
-const chooseCountry = document.querySelector('.coose-country-js');
+const countriesBackdrop = document.querySelector('.countries-backdrop-js')
+const chooseCountry = document.querySelector('.choose-country-js');
+const countrySelect = document.querySelector('#country-select-js')
+const countriesList = document.querySelector('.countries-list-js');
+const closeListBtn = document.querySelector('.close-list-btn');
+
+
+chooseCountry.addEventListener('click', showCountriesList);
+countrySelect.addEventListener('focus', showCountriesList)
+closeListBtn.addEventListener('click', closeCountriesList);
+
+countriesList.addEventListener('change', (e) => {
+  console.log(e.target);
+  countrySelect.value = e.target.value;
+  closeCountriesList()
+})
 
 createCountriesList();
 
-const countriesList = document.querySelector('.countries-list');
-
-chooseCountry.addEventListener('click', openCountriesList);
-
-
-
-function openCountriesList(e) {
-  countriesList.classList.add('visible');
-
-  // document.addEventListener('click', closeDropdownList) 
+function showCountriesList() {
+  countriesBackdrop.classList.remove('is-hidden');
+  
 }
 
-function closeDropdownList(e) {
-  refs.chooseCountry.innerHTML = ''
-  countriesList.classList.remove('visible')
-  // if (countriesList.classList.includes(visible)) {
-  //   console.log('yes');
-  // }
-  // if (e.target.nodeName !== 'LI') {
-  //   console.log('esc');
-  // }
+function closeCountriesList() {
+  event.stopImmediatePropagation()
+  countriesBackdrop.classList.add('is-hidden')
 }
+
+
     
 function createCountriesList() {
-  chooseCountry.insertAdjacentHTML('beforeend', `<ul tabindex="4" class="countries-list list">${createListMarkup()}</ul>`)
+  countriesList.innerHTML = createListMarkup();
 }
 
 function createListMarkup() {
@@ -44,6 +43,9 @@ function createListMarkup() {
   }).join('');
 }
 
-function createItemMarkup(country, index) {
-  return `<li tabindex="index" class="counties-list__item">${country.name}</li>`
+function createItemMarkup(country) {
+  return `<div>
+            <input id="${country.countryCode}" class="countries-list__item-radio" type="radio" name="country" value="${country.name}">
+            <label for="${country.countryCode}" class="counties-list__item">${country.name} </label>
+          </div>`
 }

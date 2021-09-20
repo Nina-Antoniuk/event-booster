@@ -24,15 +24,22 @@
           </svg>
         </button>
       </div>
-      <div class="input coose-country-js">
-        <select id="country-select-js" class="input-search select" type="text">
+      <div class="input choose-country-js">
+        <!-- <select id="country-select-js" class="input-search select" type="text">
           <option class="select__item" value="">Choose country</option>
-        </select>
+        </select> -->
+        <input id="country-select-js" class="input-search select" type="text" autocomplete="false" placeholder="Choose country">
         <button class=" search-btn" type="button">
             <svg class="input-icon" id="country-select-svg">
               <use href="./images/svg/sprits.svg#icon-select"></use>
             </svg>
         </button>
+
+        <div class="is-hidden countries-backdrop  countries-backdrop-js list">
+          <button class="close-list-btn" type="button" aria-label="close countries list button">X</button>
+          <div class="countries-list countries-list-js"></div>
+        </div>
+
       
       </div>
     </form>
