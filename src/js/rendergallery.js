@@ -1,8 +1,7 @@
 import refs from "./refs";
-// import { searchCardsLinks } from "./modal";
+import { searchCardsLinks } from "./modal";
 import sprits from "../images/svg/sprits.svg";
 // import fetchApi from "./fetchAPI";
-
 
 // refs.galleryList.addEventListener('click', searchCardsLinks)
 
@@ -26,7 +25,6 @@ function createGalleryElementMarkup({
   images,
 }) {
   return `<li class ='gallery__item-card list pseudo' data-modal-open="">
-                  <a class='set-of-cards__link' href='#backdrop' >
                       <div class='gallery__image'>
                         <img class='gallery__img' src='${images[1].url}' alt='${name}' />
                       </div>
@@ -42,6 +40,5 @@ function createGalleryElementMarkup({
                           <p class='gallery__meta_place gallery_margin'>${venues[0].name}</p>
                         </div>
                       </div>
-                    </a>
                   </li>`;
 }
