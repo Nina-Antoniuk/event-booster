@@ -1,5 +1,6 @@
 const refs = {
   body: document.querySelector("body"),
+  header: document.querySelector(".header"),
 
   authBtn: document.querySelector(".auth-btn"),
   signInBtn: document.querySelector(".signin-btn"),
@@ -18,6 +19,7 @@ const refs = {
 
   galleryList: document.querySelector(".gallery"),
 
+  buttonUp: document.querySelector("#buttonScrollUp"),
   footerSection: document.querySelector(".footer__section"),
   footerModal: document.querySelector(".footer__modal"),
 };

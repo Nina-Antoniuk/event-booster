@@ -11,15 +11,15 @@
 @import "./base/scroll";
 
 // components
-@import './components/logo';
-@import './components/spinner';
-@import './components/auth';
 @import "./components/body-bg";
+@import "./components/logo";
+@import "./components/auth";
+@import "./components/spinner";
 @import "./components/pagination";
 @import "./components/footer";
 @import "./components/spinner";
 @import "./components/button-up";
-
+@import "./components/modal";
 
 // layout
 @import "./layout/header";

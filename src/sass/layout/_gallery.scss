@@ -1,12 +1,38 @@
 .gallery__meta_name,
 .gallery__meta_date,
 .gallery__meta_place {
-  color: var(--light-text-color);
   margin-bottom: 0;
 }
 
+.gallery__meta_name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-text-color);
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.gallery__meta_date {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--light-text-color);
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
+}
+
 .gallery__meta_place {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--light-text-color);
   margin-bottom: 5px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 17px;
+  }
 }
 
 .flex-svg {
@@ -16,10 +42,16 @@
 }
 
 .gallery__item-card .icon {
-  width: 16px;
-  height: 12px;
-  margin-right: 10px;
-  fill: currentColor;
+  width: 6px;
+  height: 9px;
+  margin-right: 4px;
+  margin-left: 5px;
+  fill: var(--light-text-color);
+
+  @media screen and (min-width: 768px) {
+    width: 7px;
+    height: 10px;
+  }
 }
 
 .gallery {
@@ -29,6 +61,8 @@
   grid-row-gap: 14px;
   text-align: center;
   justify-content: center;
+  position: relative;
+  padding-top: 13px;
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
@@ -44,16 +78,45 @@
 }
 
 .gallery__item-card {
-  background-color: rgb(150, 150, 250);
+  position: relative;
+}
+
+.pseudo::after {
+  content: "";
+  display: block;
+  width: 109px;
+  height: 101px;
+  border: 1px solid var(--accent-text-color);
+  border-radius: 50px 0px;
+  position: absolute;
+  top: -9px;
+  right: -10px;
+
+  @media screen and (min-width: 768px) {
+    width: 153px;
+    height: 143px;
+    top: -13px;
+    right: 0;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 153px;
+    height: 143px;
+    top: -13px;
+    right: -14px;
+  }
 }
 
 .gallery__image {
-  width: 180px;
-  height: 227px;
+  width: 128px;
+  height: 161px;
   overflow: hidden;
   margin-right: auto;
   margin-left: auto;
-  // text-align: center;
+
+  @media screen and (min-width: 768px) {
+    width: 180px;
+    height: 227px;
+  }
 }
 
 .gallery__img {
@@ -67,4 +130,57 @@
 
 .gallery_margin {
   margin-top: 5px;
+}
+
+.gallery__item-card {
+  transition: transform linear var(--duration);
+  border-radius: 50px 0px 25px 0px;
+}
+
+.gallery__item-card:hover,
+.gallery__item-card:focus {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 8px 10px rgba(220, 86, 197, 0.1);
+}
+
+// Анимация при первом появлении
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.gallery {
+  -webkit-animation: fade-in 2s linear; /* Safari 4+ */
+  -moz-animation: fade-in 2s linear; /* Fx 5+ */
+  -o-animation: fade-in 2s linear; /* Opera 12+ */
+  animation: fade-in 2s linear; /* IE 10+, Fx 29+ */
 }

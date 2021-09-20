@@ -1,9 +1,27 @@
 import { countries } from "./countries";
 import { Select } from "./select";
 
-// refs.chooseCountry.addEventListener('click', openList);
+openCountriesList();
 
-// openCountriesList()
+function openCountriesList() {
+  return refs.chooseCountry.insertAdjacentHTML(
+    "beforeend",
+    createOptionsMarkup()
+  );
+}
+
+function createOptionsMarkup() {
+  const countriesSort = countries.sort((a, b) => (a.name > b.name ? 1 : -1));
+  return countriesSort
+    .map((country) => {
+      return createItemMarkup(country);
+    })
+    .join("");
+}
+
+function createItemMarkup(country) {
+  return `<option value="${country.countryCode}">${country.name}</option>`;
+}
 
 // function openCountriesList() {
 //   return refs.chooseCountry.insertAdjacentHTML('beforeend', createOptionsMarkup())
