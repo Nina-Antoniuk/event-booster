@@ -26,7 +26,7 @@
   visibility: hidden;
   overflow-x: hidden;
   overflow-y: scroll;
-  transition: all 0.8s ease 0s;
+  transition: all 0.5s ease 0s;
   z-index: 10000;
 
   &.open {
@@ -39,22 +39,23 @@
   display: block;
   text-align: center;
   position: fixed;
-  max-width: 272px;
+  max-width: 270px;
   width: 100%;
-  padding: 62px 5px 104px 5px;
+  padding: 60px 5px 100px 5px;
   border-radius: 150px 0px;
   background-color: #fff2fd;
+  margin-top: 200px;
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 479px) {
     text-align: start;
-    max-width: 595px;
-    padding-bottom: 56px;
+    max-width: 600px;
+    padding-bottom: 50px;
     border-radius: 300px 0px;
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 930px;
-    padding-bottom: 62px;
+    max-width: 900px;
+    padding-bottom: 50px;
   }
 }
 
@@ -72,7 +73,7 @@
 
   &:hover,
   &:focus {
-    background-color: var(--modal-hover-color);
+    background-color:  #DC56C5;
   }
 
   &:hover .modal__icon,
@@ -88,34 +89,34 @@
 
 .modal__author-img {
   display: block;
-  width: 102px;
-  height: 102px;
-  background-image: url();
-  margin: 0 auto 18px auto;
+  width: 100px;
+  height: 100px;
+  // background-image: src='${images[0].url}' alt='${name}'/>;
+  margin: 0 auto 20px auto;
 
   @media screen and (min-width: 480px) {
     width: 70px;
     height: 70px;
-    margin-bottom: 43px;
+    margin-bottom: 40px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 132px;
-    height: 132px;
-    margin-bottom: 41px;
+    width: 130px;
+    height: 130px;
+    margin-bottom: 40px;
   }
 }
 
 .modal__position {
-  margin-left: 17px;
-  margin-right: 17px;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-bottom: 25px;
 
   @media screen and (min-width: 480px) {
     display: flex;
     margin-left: 50px;
-    margin-right: 17px;
-    margin-bottom: 43px;
+    margin-right: 20px;
+    margin-bottom: 45px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -142,18 +143,18 @@
 .modal__info-title {
   font-weight: 600;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 25px;
   text-transform: uppercase;
   color: var(--accent-text-color);
 
   @media screen and (min-width: 1280px) {
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 25px;
+    line-height: 30px;
   }
 }
 
 .modal__info-text {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 20px;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -176,7 +177,7 @@
 }
 
 .modal__btn-buy {
-  padding: 9px 19px 11px 19px;
+  padding: 10px 20px 10px 20px;
   border: none;
   border-radius: 5px;
   background: rgba(76, 0, 254, 1);
@@ -185,23 +186,23 @@
 
   &:hover,
   &:focus {
-    background-color: rgba(76, 0, 254, 1);
+    background-color: #DC56C5;
   }
 }
 
 .modal__btn-more {
   display: block;
   margin: 0 auto;
-  padding: 10px 16px;
+  padding: 10px 15px;
   border: 1px solid rgba(76, 0, 254, 1);
   border-radius: 5px;
   text-transform: uppercase;
-  color: var(--modal-accent-first-color);
+  color: #DC56C5;
 
-  // &:hover,
-  // &:focus {
-  //   // background-color:;
-  //   border-color: ;
-  //   color: #ffffff;
-  // }
+  &:hover,
+  &:focus {
+    background-color:#DC56C5;
+    border-color: #DC56C5;
+    color: #ffffff;
+  }
 }
