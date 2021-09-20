@@ -13,7 +13,6 @@ countrySelect.addEventListener('focus', showCountriesList)
 closeListBtn.addEventListener('click', closeCountriesList);
 
 countriesList.addEventListener('change', (e) => {
-  console.log(e.target);
   countrySelect.value = e.target.value;
   closeCountriesList()
 })
