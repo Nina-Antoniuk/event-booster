@@ -88,11 +88,13 @@
 }
 
 .modal__author-img {
-  display: block;
   width: 100px;
   height: 100px;
-  // background-image: src='${images[0].url}' alt='${name}'/>;
   margin: 0 auto 20px auto;
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50px;
 
   @media screen and (min-width: 480px) {
     width: 70px;
@@ -128,7 +130,7 @@
 
 .modal__poster-container {
   margin-right: 30px;
-
+  // background-image: url(//src/images/pic1.jpg);
   @media screen and (min-width: 1280px) {
     margin-right: 60px;
   }

@@ -5,10 +5,9 @@
         <use href="./images/svg/sprits.svg#icon-close"></use>
       </svg>
     </button>
-    <div class="modal__author-img"></div>
+    <div class="modal__author-img" ><img class="modal__author-img" src="images/pic.png" alt="" width="130px"></div>
     <div class="modal__position">
-      <div class="modal__poster-container">
-      </div>
+      <div class="modal__poster-container"><img src="images/pic1.jpg" alt="" width="360px"></div>
       <div class="modal__info">
         <ul class="list modal__list">
           <li>
@@ -40,6 +39,19 @@
         </ul>
       </div>
     </div>
-    <button class="modal__btn modal__btn-more" type="button">More from this author</button>
+    <button class="modal__btn modal__btn-more" type="button" data-modal-author disabled="true">More from this author</button>
   </div>
 </div>
+
+
+<!-- Для хендлбара -->
+
+<!-- Модальное окно
+<div class="modal-overlay js-modal visually-hidden">
+  <div class="modal">
+    <button type="button" class="close modal__btn-close" data-action="close-modal">
+    </button>
+    <div class="modal__event-card"></div>
+    <!-- Данные о событии рендерятся сюда -->
+  </div>
+</div> -->
