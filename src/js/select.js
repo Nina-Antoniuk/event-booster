@@ -13,7 +13,7 @@ const getTemplate = (data = [], placeholder) => {
 
   function createMarkup(item) {
     return `
-            <li class="select__item" data-type="item" data-id="${item.countryCode}" >${item.name}</li>
+            <li tabindex="0" class="select__item" data-type="item" data-id="${item.countryCode}" >${item.name}</li>
         `;
   }
   return `
@@ -36,6 +36,22 @@ export class Select {
     this.elem = document.querySelector(selector);
     this.options = options;
     this.selectedId = null;
+
+    this.elem.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        this.toggle(); // отвечает за открытие окна стран
+      }
+    });
+
+    this.elem.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        let div_focus = document.querySelector(".select__item:focus");
+        if (div_focus) {
+          console.log(div_focus.innerHTML);
+          this.select(id);
+        }
+      }
+    });
 
     this.#render();
     this.#setup();

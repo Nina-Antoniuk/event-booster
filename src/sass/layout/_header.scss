@@ -237,7 +237,8 @@
       background-color: var(--accent-text-color);
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--accent-text-color);
       cursor: pointer;
       transition: 0.15s background-color ease-in;
