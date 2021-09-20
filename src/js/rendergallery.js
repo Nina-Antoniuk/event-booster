@@ -1,10 +1,10 @@
 import refs from "./refs";
-import { searchCardsLinks } from "./modal";
+// import { searchCardsLinks } from "./modal";
 import sprits from "../images/svg/sprits.svg";
 // import fetchApi from "./fetchAPI";
 
 
-refs.galleryList.addEventListener('click', searchCardsLinks)
+// refs.galleryList.addEventListener('click', searchCardsLinks)
 
 
 export default function renderGalleryMarkup(events) {
@@ -25,8 +25,8 @@ function createGalleryElementMarkup({
   _embedded: { venues },
   images,
 }) {
-  return `<li class ='gallery__item-card list pseudo'>
-                  <a class='set-of-cards__link' href='#backdrop' data-modal-open="">
+  return `<li class ='gallery__item-card list pseudo' data-modal-open="">
+                  <a class='set-of-cards__link' href='#backdrop' >
                       <div class='gallery__image'>
                         <img class='gallery__img' src='${images[1].url}' alt='${name}' />
                       </div>

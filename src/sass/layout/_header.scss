@@ -167,94 +167,94 @@
   fill: #939393;
 }
 
-.countries-backdrop {
-  &.is-hidden {
-    display: none;
-  }
+// .countries-backdrop {
+//   &.is-hidden {
+//     display: none;
+//   }
 
-  & {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 100%;
-    height: 210px;
-    padding-top: 47px;
-    overflow: hidden;
-    border-radius: 20px;
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    color: #cccccc;
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-}
+//   & {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     z-index: 100;
+//     width: 100%;
+//     height: 210px;
+//     padding-top: 47px;
+//     overflow: hidden;
+//     border-radius: 20px;
+//     -webkit-backdrop-filter: blur(20px);
+//     backdrop-filter: blur(20px);
+//     color: #cccccc;
+//     background-color: rgba(255, 255, 255, 0.2);
+//   }
+// }
 
-.countries-list {
-  width: 100%;
-  height: 160px;
-  overflow-y: scroll;
-  font-size: 16px;
-  line-height: 20px;
-  border-radius: 0 0 20px 20px;
-  text-indent: 30px;
+// .countries-list {
+//   width: 100%;
+//   height: 160px;
+//   overflow-y: scroll;
+//   font-size: 16px;
+//   line-height: 20px;
+//   border-radius: 0 0 20px 20px;
+//   text-indent: 30px;
 
-  &::before {
-    content: "Choose country";
-    color: inherit;
-    position: absolute;
-    top: 10px;
-    left: 0;
-    width: 80%;
-    text-indent: 0;
-    margin-left: 30px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid gray;
-  }
-}
+//   &::before {
+//     content: "Choose country";
+//     color: inherit;
+//     position: absolute;
+//     top: 10px;
+//     left: 0;
+//     width: 80%;
+//     text-indent: 0;
+//     margin-left: 30px;
+//     padding-bottom: 10px;
+//     border-bottom: 1px solid gray;
+//   }
+// }
 
-.close-list-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 500;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
+// .close-list-btn {
+//   position: absolute;
+//   top: 10px;
+//   right: 10px;
+//   z-index: 500;
+//   border: none;
+//   background-color: transparent;
+//   cursor: pointer;
+// }
 
-.countries-list__item-radio::-webkit-input-placeholder {
-  font-size: 16px;
-  line-height: 1.25;
-  color: var(--blurry-text-color);
-}
+// .countries-list__item-radio::-webkit-input-placeholder {
+//   font-size: 16px;
+//   line-height: 1.25;
+//   color: var(--blurry-text-color);
+// }
 
-.countries-list__item-radio::-moz-placeholder {
-  font-size: 16px;
-  line-height: 1.25;
-  background: var(--bg-input);
-  color: var(--blurry-text-color);
-}
+// .countries-list__item-radio::-moz-placeholder {
+//   font-size: 16px;
+//   line-height: 1.25;
+//   background: var(--bg-input);
+//   color: var(--blurry-text-color);
+// }
 
-.countries-list__item-radio:-ms-input-placeholder {
-  font-size: 16px;
-  line-height: 1.25;
-  background: var(--bg-input);
-  color: var(--blurry-text-color);
-}
+// .countries-list__item-radio:-ms-input-placeholder {
+//   font-size: 16px;
+//   line-height: 1.25;
+//   background: var(--bg-input);
+//   color: var(--blurry-text-color);
+// }
 
-.countries-list__item-radio::-ms-input-placeholder {
-  font-size: 16px;
-  line-height: 1.25;
-  background: var(--bg-input);
-  color: var(--blurry-text-color);
-}
+// .countries-list__item-radio::-ms-input-placeholder {
+//   font-size: 16px;
+//   line-height: 1.25;
+//   background: var(--bg-input);
+//   color: var(--blurry-text-color);
+// }
 
-.countries-list__item-radio::placeholder {
-  font-size: 16px;
-  line-height: 1.25;
-  background: var(--bg-input);
-  color: var(--blurry-text-color);
-}
+// .countries-list__item-radio::placeholder {
+//   font-size: 16px;
+//   line-height: 1.25;
+//   background: var(--bg-input);
+//   color: var(--blurry-text-color);
+// }
 
 .counties-list__item {
   display: block;
@@ -270,8 +270,8 @@
   }
 }
 
-.countries-list__item-radio {
-  position: absolute;
-  width: 0;
-  height: 0;
-}
+// .countries-list__item-radio {
+//   position: absolute;
+//   width: 0;
+//   height: 0;
+// }
