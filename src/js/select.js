@@ -13,20 +13,20 @@ const getTemplate = (data = [], placeholder) => {
 
   function createMarkup(item) {
     return `
-            <li tabindex="0" class="select__item" data-type="item" data-id="${item.countryCode}" >${item.name}</li>
-        `;
+            <button type="button" class="select__item" data-type="item" data-id="${item.countryCode}" >${item.name}</button>
+            `;
   }
   return `
-        <div class="select__input input-search" data-type="input">
+        <button type="button" class="select__input input-search" data-type="input">
             <span data-type="name">${text}</span>
             <svg class="input-icon" id="country-select-svg">
                 <use href="${sprits}#icon-select-down" data-type="arrow"></use>
             </svg>
-        </div>
+        </button>
         <div class="select__dropdown input-search">
-            <ul class="select__list">
+            <div class="select__list">
                 ${items}
-            </ul>
+            </div>
         </div>
     `;
 };
@@ -37,21 +37,21 @@ export class Select {
     this.options = options;
     this.selectedId = null;
 
-    this.elem.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        this.toggle(); // отвечает за открытие окна стран
-      }
-    });
+    // this.elem.addEventListener("keydown", (event) => {
+    //   if (event.key === "Enter") {
+    //     this.toggle(); // отвечает за открытие окна стран
+    //   }
+    // });
 
-    this.elem.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        let div_focus = document.querySelector(".select__item:focus");
-        if (div_focus) {
-          console.log(div_focus.innerHTML);
-          this.select(id);
-        }
-      }
-    });
+    // this.elem.addEventListener("keydown", (event) => {
+    //   if (event.key === "Enter") {
+    //     let div_focus = document.querySelector(".select__item:focus");
+    //     if (div_focus) {
+    //       console.log(div_focus.innerHTML);
+    //       this.select(id);
+    //     }
+    //   }
+    // });
 
     this.#render();
     this.#setup();
