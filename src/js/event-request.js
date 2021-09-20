@@ -30,8 +30,9 @@ function onInputChange(e) {
     });
 }
 
-function fetchEvents(keyword = "", countryCode = "") {
-  return fetch(
+async function fetchEvents(keyword = "", countryCode = "") {
+  const response = await fetch(
     `${BASE_URL}?keyword=${keyword}&countryCode=${countryCode}&apikey=${API_KEY}`
-  ).then((response) => response.json());
+  );
+  return await response.json();
 }

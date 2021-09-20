@@ -1,7 +1,7 @@
 import "simple-notify/dist/simple-notify.min.css";
 import "./sass/main.scss";
+import onEventClick from "./js/modal.js";
 import "./js/get-countries";
-import "./js/event-request";
 import "./js/auth.js";
 import "./js/footer-modal.js";
 import fetchApi from "./js/fetchapi";
@@ -9,7 +9,6 @@ import renderGalleryMarkup from "./js/rendergallery";
 import Pagination from "./js/pagination";
 import { pager } from "./js/pagination";
 import sprits from "./images/svg/sprits.svg";
-import "./js/modal";
 
 window.addEventListener("DOMContentLoaded", onPageLoad);
 

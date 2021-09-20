@@ -1,62 +1,59 @@
-const closeModalRef = document.querySelectorAll("[data-modal-close]");
-const backdropModal = document.querySelector("[data-modal-backdrop]");
-// const body = document.querySelector('body');
+// Импорт класса и шаблона
+import EventService from "./events-service";
+import modalEventTpl from "../templates/modalEventTpl";
+import refs from "./refs";
 
-function searchCardsLinks() {
-  const openModalLinks = document.querySelectorAll("[data-modal-open]");
-  if (openModalLinks.length > 0) {
-    for (let index = 0; index < openModalLinks.length; index++) {
-      const openModalLink = openModalLinks[index];
+const modalEventService = new EventService();
 
-      openModalLink.addEventListener("click", function (e) {
-        const modalName = openModalLink.getAttribute("href").replace("#", "");
-        const currentModalLink = document.getElementById(modalName);
-        modalOpen(currentModalLink);
-        e.preventDefault();
-      });
-      window.addEventListener("keydown", onEscModalClose);
-    }
+refs.eventsItem.addEventListener("click", onEventClick);
+
+// открытие модального окна при клике на элемент галереи
+function onEventClick(e) {
+  e.preventDefault();
+  // console.log('target name', e.target.nodeName);
+
+  if (e.target.nodeName !== "li") {
+    refs.modalOverlay.classList.remove("visually-hidden");
+    refs.modalOverlay.classList.add("is-open");
+    refs.body.classList.add("overflow-hidden");
+    // добавила строки для рендеринга события в модалке
+
+    const eventId = e.target.getAttribute("id");
+    // console.log(eventId);
+    modalEventService
+      .fetchEventById(eventId)
+      .then((event) => renderMarkupInModal(event));
+  }
+  // функция рендеринга
+  function renderMarkupInModal(arr) {
+    const markup = modalEventTpl(arr);
+    refs.modalContainer.insertAdjacentHTML("beforeend", markup);
   }
 }
 
-function searchCloseBtn() {
-  console.log("searchCloseBtn");
-  if (closeModalRef.length > 0) {
-    for (let index = 0; index < closeModalRef.length; index++) {
-      const el = closeModalRef[index];
-      el.addEventListener("click", function (e) {
-        closeModal(el.closest(".backdrop"));
-        e.preventDefault();
-      });
-    }
+function onModalCloseBtn() {
+  refs.modalOverlay.classList.remove("is-open");
+  refs.modalOverlay.classList.add("visually-hidden");
+  refs.body.classList.remove("overflow-hidden");
+
+  refs.modalOverlay.removeEventListener("click", onModalCloseBtn);
+  refs.modalContainer.innerHTML = "";
+  // очистка контейнера, чтобы карточка исчезала при закрытии окна
+}
+
+// Закрытие по клику на кнопку close и на overlay модального окна
+refs.modalOverlay.addEventListener("click", (event) => {
+  const target = event.target;
+
+  if (target.matches(".modal__btn-close") || target.matches(".modal-overlay")) {
+    onModalCloseBtn();
   }
-}
+});
 
-function modalOpen(currentModalLink) {
-  console.log("modal open");
-  if (currentModalLink) {
-    const modalActive = document.querySelector(".backdrop.open");
-    if (modalActive) {
-      closeModal(modalActive);
-    }
+// Закрытие при нажатии Escape
+document.addEventListener("keydown", function (event) {
+  if (event.code !== "Escape") {
+    return;
   }
-  currentModalLink.classList.add("open");
-  currentModalLink.addEventListener("click", function (e) {
-    if (!e.target.closest(".modal")) {
-      closeModal(e.target.closest(".backdrop"));
-    }
-  });
-  searchCloseBtn();
-}
-
-function onEscModalClose(evt) {
-  if (evt.code === "Escape") {
-    closeModal(backdropModal);
-  }
-}
-
-function closeModal(modalActive) {
-  modalActive.classList.remove("open");
-}
-
-export { searchCardsLinks };
+  onModalCloseBtn();
+});

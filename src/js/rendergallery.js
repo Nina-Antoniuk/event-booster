@@ -1,5 +1,4 @@
 import refs from "./refs";
-import { searchCardsLinks } from "./modal";
 import sprits from "../images/svg/sprits.svg";
 // import fetchApi from "./fetchAPI";
 
@@ -43,6 +42,7 @@ export default function renderGalleryMarkup(events) {
   const markup = events
     .map(
       ({
+        id,
         name,
         dates: {
           start: { localDate },
@@ -51,10 +51,9 @@ export default function renderGalleryMarkup(events) {
         images,
       }) => {
         return `<li class ='gallery__item-card list'>
-        <a class='set-of-cards__link' href='#backdrop' data-modal-open="">
         <div class='gallery__image'>
 
-          <img class='gallery__img'  src='${images[0].url}' alt='${name}'/>
+          <img class='gallery__img'  src='${images[0].url}' alt='${name}' id='${id}/>
 
         <div class='gallery__image'>
           <img class='gallery__img' src='${images[1].url}' alt='${name}' />
@@ -71,11 +70,9 @@ export default function renderGalleryMarkup(events) {
           <p class='gallery__meta_place gallery_margin'>${venues[0].name}</p>
           </div>
         </div>
-        </a>
   </li>`;
       }
     )
     .join("");
   refs.galleryList.innerHTML = markup;
-  searchCardsLinks();
 }
