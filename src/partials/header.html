@@ -1,0 +1,54 @@
+<header class="header">
+  <a class="logo" href="./index.html">
+    <img class="logo-img" src="./images/svg/logo-text.svg" alt="logo" />
+  </a>
+
+  <div class="container header-container">
+    <h1 class="title">
+      FIND BEST EVENTS <br />
+      AROUND THE WORLD
+    </h1>
+    <form class="search-form" id="search-form-js">
+      <div class="form-field">
+        <input
+          id="customer-input-js"
+          class="input-search"
+          type="text"
+          name="search"
+          autocomplete="off"
+          placeholder="Start searching"
+          disabled
+        />
+        <button class="search-btn" type="submit">
+          <svg class="input-icon">
+            <use href="./images/svg/sprits.svg#icon-search"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div id="select-country" class="form-field select">
+        <input 
+          id="select" 
+          class="input-search" 
+          autocomplete="off" 
+          placeholder="Choose country..." 
+          value="" 
+          data-code=""
+          disabled>
+        <button class="search-btn" type="button">
+          <svg class="input-icon" id="country-select-svg">
+            <use href="./images/svg/sprits.svg#icon-select-down"></use>
+          </svg>
+        </button>
+        <div class="select__dropdown">
+          <button class="close-dropdown" type="button">
+            <svg class="input-icon" id="close-select-svg">
+              <use href="./images/svg/sprits.svg#icon-select-up"></use>
+            </svg>
+          </button>
+          <div class="countries-list country-select-js"></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</header>

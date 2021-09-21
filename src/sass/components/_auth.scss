@@ -1,0 +1,108 @@
+.auth-btn,
+.signin-btn {
+  background-color: var(--dark-bg-color);
+  border-radius: 10px 0px 10px 0px;
+  padding: 8px 10px;
+  color: var(--light-text-color);
+  transition: background-color ease var(--duration);
+  & .auth-icon,
+  & .signin-icon {
+    display: block;
+  }
+}
+
+.auth-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  @media screen and (min-width: 767px) {
+    top: 50px;
+    right: 50px;
+  }
+}
+
+.auth-btn:enabled:hover,
+.signin-btn:enabled:hover,
+.auth-btn:enabled:focus,
+.signin-btn:enabled:focus {
+  background-color: var(--accent-text-color);
+}
+
+.icon-auth-on,
+.icon-signIn-on,
+.icon-auth-done,
+.icon-signIn-done {
+  display: none;
+}
+
+.icon-auth-on.is-open,
+.icon-signIn-on.is-open,
+.icon-auth-done.is-open,
+.icon-signIn-done.is-open {
+  fill: var(--light-text-color);
+  display: block;
+}
+
+.auth.is-open,
+.signIn.is-open {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--bg-input);
+  text-align: center;
+  padding-top: 40px;
+
+  & .auth-container,
+  & .signIn-container {
+    width: 450px;
+    height: 400px;
+    background-color: var(--dark-bg-color);
+    margin-left: calc((100% - 450px) / 2);
+    border-radius: 20px;
+    @media screen and (max-width: 767px) {
+      width: 260px;
+      margin-left: calc((100% - 260px) / 2);
+    }
+  }
+  & .title {
+    padding-top: 20px;
+  }
+  & .form {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  & .form-label {
+    display: block;
+  }
+  & .form-label:not(:last-child) {
+    margin-bottom: 25px;
+  }
+  & .label-text {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--light-text-color);
+  }
+  & input {
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  & .submit {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--accent-text-color);
+    transition: background-color ease var(--duration);
+  }
+  & .submit:hover,
+  & .submit:focus {
+    background-color: var(--light-text-color);
+  }
+}
+.auth,
+.signIn {
+  display: none;
+}

@@ -3,19 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Заголовок страницы</title>
+
+    <title>Event Booster</title>
+    <meta property="og:title" content="Event Booster" />
+    <meta
+      property="og:url"
+      content="https://nina-antoniuk.github.io/event-booster/"
+    />
+    <meta property="og:image" content="./images/header/mobile/pic.png" />
+    <!-- <meta property="og:image:secure_url" content="https://secure.example.com/ogp.jpg" /> -->
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image:alt" content="Entry of the group" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
-  </head>
-  <body>
-    <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-    <include src="./partials/header.html"></include>
 
-    <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" type="image/png" href="/images/favicon5.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css"
+    />
+  </head>
+  <body class="body">
+
+    <include src="./partials/header.html"></include>
+    <include src="./partials/auth.html"></include>
+    <main>
+      <include src="./partials/gallery.html"></include>
+      <include src="./partials/button-up.html"></include>
+      <include src="./partials/pagination.html"></include>
+    </main>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/modal.html"></include>
+
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyC1ZrE8wfTMzQComHl8bVNa053NAxSTKFI",
+        authDomain: "event-booster-7e923.firebaseapp.com",
+        databaseURL: "https://event-booster-7e923-default-rtdb.firebaseio.com",
+        projectId: "event-booster-7e923",
+        storageBucket: "event-booster-7e923.appspot.com",
+        messagingSenderId: "200776246821",
+        appId: "1:200776246821:web:18caae009e19aeb6e241cc",
+      };
+      const app = initializeApp(firebaseConfig);
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
     <script src="./index.js"></script>
+
+
   </body>
 </html>

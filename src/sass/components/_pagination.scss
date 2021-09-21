@@ -1,0 +1,32 @@
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.pagination__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 30px;
+  height: 30px;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  border: 1px solid transparent;
+  border-radius: 10px 0px;
+
+  &:not(:last-child) {
+    margin-right: 5px;
+  }
+}
+
+.pagination__link--active {
+  border-color: #dc56c5;
+  color: #dc56c5;
+}
