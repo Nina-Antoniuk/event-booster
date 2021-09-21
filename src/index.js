@@ -1,16 +1,12 @@
 import "simple-notify/dist/simple-notify.min.css";
 import "./sass/main.scss";
-import onEventClick from "./js/modal.js";
-import "./js/get-countries";
 import "./js/auth.js";
-import "./js/footer-modal.js";
+import "./js/get-countries";
 import fetchApi from "./js/fetchapi";
 import renderGalleryMarkup from "./js/rendergallery";
-import "./js/load-more-events";
-import "./js/select";
 import "./js/get-countries";
-import "./js/auth.js";
 import "./js/event-request";
+import "./js/load-more-events";
 import "./js/button-up";
 import { pager } from "./js/pagination";
 import sprits from "./images/svg/sprits.svg";

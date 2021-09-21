@@ -64,9 +64,6 @@ function request(e) {
 }
 
 
-// async function fetchEvents(keyword = "", countryCode = "") {
-//   const response = await fetch(
-
 function fetchEvents(keyword = "", countryCode = "") {
   spinner.loading();
   return fetch(
@@ -74,5 +71,4 @@ function fetchEvents(keyword = "", countryCode = "") {
   ).then(data => {
     return data.json();
   });
-  // return await response.json();
 }
