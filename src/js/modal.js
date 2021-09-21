@@ -1,76 +1,64 @@
-import refs from './refs';
+// Импорт класса и шаблона
+import fetchEventById from "./events-service";
+import modalEventTpl from "../templates/modalEventTpl";
+import refs from "./refs";
+import { showNotification, closeNotification } from './notification';
 
-const backdropModal = document.querySelector("[data-modal-backdrop]");
-const openModalLinks = document.querySelectorAll("[data-modal-open]");
-const closeModalRef = document.querySelectorAll("[data-modal-close]");
-// const body = document.querySelector('body');
+// const modalEventService = new EventService();
 
+refs.galleryList.addEventListener("click", onEventClick);
 
-refs.galleryList.addEventListener('click', (e) => {
+// открытие модального окна при клике на элемент галереи
+
+function onEventClick(e) {
+  e.preventDefault();//?
   if (e.target.nodeName !== "LI") {
     return 
   }
-  modalOpen()
-})
-
-
-
-// function searchCardsLinks() {
-//   const openModalLinks = document.querySelectorAll("[data-modal-open]");
-//   if (openModalLinks.length > 0) {
-//     for (let index = 0; index < openModalLinks.length; index++) {
-//       const openModalLink = openModalLinks[index];
-
-//       openModalLink.addEventListener("click", function (e) {
-//         const modalName = openModalLink.getAttribute("href").replace("#", "");
-//         const currentModalLink = document.getElementById(modalName);
-//         modalOpen(currentModalLink);
-//         e.preventDefault();
-//       });
-//       window.addEventListener("keydown", onEscModalClose);
-//     }
-//   }
-// }
-
-// function searchCloseBtn() {
-//   console.log("searchCloseBtn");
-//   if (closeModalRef.length > 0) {
-//     for (let index = 0; index < closeModalRef.length; index++) {
-//       const el = closeModalRef[index];
-//       el.addEventListener("click", function (e) {
-//         closeModal(el.closest(".backdrop"));
-//         e.preventDefault();
-//       });
-//     }
-//   }
-// }
-
-function modalOpen(currentModalLink) {
-  console.log("modal open");
-//   if (currentModalLink) {
-//     const modalActive = document.querySelector(".backdrop.open");
-//     if (modalActive) {
-//       closeModal(modalActive);
-//     }
+  fetchEventById(e.target.dataset.id)
+    .then(event => {
+      console.log(event);
+      renderMarkupInModal(event)
+    })
+    .catch(err => {
+      showNotification('error', err, 'Try again');
+      setTimeout(closeNotification, 2500);
+    });
+  
+  refs.modalOverlay.classList.add("is-open");
+  refs.modalCloseBtn.addEventListener('click', onModalCloseBtn);
+  refs.body.classList.add("hidden");
 }
   
-//   currentModalLink.classList.add("open");
-//   currentModalLink.addEventListener("click", function (e) {
-//     if (!e.target.closest(".modal")) {
-//       closeModal(e.target.closest(".backdrop"));
-//     }
-//   });
-//   searchCloseBtn();
-// }
+  // функция рендеринга
+function renderMarkupInModal(arr) {
+    const markup = arr.map(modalEventTpl)
+    refs.modalContainer.insertAdjacentHTML("beforeend", markup);
+  }
 
-// function onEscModalClose(evt) {
-//   if (evt.code === "Escape") {
-//     closeModal(backdropModal);
-//   }
-// }
 
-// function closeModal(modalActive) {
-//   modalActive.classList.remove("open");
-// }
+function onModalCloseBtn() {
+  refs.modalOverlay.classList.remove("is-open");
+  refs.body.classList.remove("hidden");
 
-// export { searchCardsLinks };
+  refs.modalOverlay.removeEventListener("click", onModalCloseBtn);
+  refs.modalContainer.innerHTML = "";
+  // очистка контейнера, чтобы карточка исчезала при закрытии окна
+}
+
+// Закрытие по клику на кнопку close и на overlay модального окна
+refs.modalOverlay.addEventListener("click", (event) => {
+  const target = event.target;
+
+  if (target.matches(".modal__btn-close") || target.matches(".modal-overlay")) {
+    onModalCloseBtn();
+  }
+});
+
+// Закрытие при нажатии Escape
+document.addEventListener("keydown", function (event) {
+  if (event.code !== "Escape") {
+    return;
+  }
+  onModalCloseBtn();
+});

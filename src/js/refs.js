@@ -22,6 +22,17 @@ const refs = {
 
   galleryList: document.querySelector(".gallery"),
 
+  eventsContainer: document.querySelector(".js-events-container"),
+  body: document.querySelector("body"),
+  // eventsItem: document.querySelector(".gallery"),
+  modalOverlay: document.querySelector(".js-modal"),
+  modalCloseBtn: document.querySelector('button[data-action="close-modal"]'),
+  event: document.querySelector(".events__image"),
+  eventCard: document.querySelector(".events__link"),
+  modal: document.querySelector(".modal"),
+  modalCloseBtn: document.querySelector('.modal__btn-close'),
+  modalContainer: document.querySelector(".modal__event-card"),
+
   buttonUp: document.querySelector("#buttonScrollUp"),
   footerSection: document.querySelector(".footer__section"),
   footerModal: document.querySelector(".footer__modal"),

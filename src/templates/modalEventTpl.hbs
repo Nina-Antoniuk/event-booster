@@ -1,0 +1,62 @@
+<article class="event">
+  <div class="modal-preview">
+    <img class="event__img--circle" src="{{ this.images.[1].url}}" alt="Event poster">
+  </div>
+  <div class="event-wrap">
+    <div class="event__img-wrap">
+      <img class="img event__img" src="{{images.[7].url}} " alt="Event poster">
+    </div>
+    <div class="event__text-content">
+      <ul class="event__info list">
+        <li class="event__info-item">
+          <h2 class="event__subtitle">info</h2>
+          <p class="event__text">
+
+            {{this.description}}
+
+            {{this.promoter.description}}
+          </p>
+        </li>
+        <li class="event__info-item">
+          <h2 class="event__subtitle">when</h2>
+          <p class="event__text event__text--first-string">
+            {{this.dates.start.localDate}}
+          </p>
+          <p class="event__text">
+            {{this.dates.start.localTime}} {{this.dates.timezone}}
+          </p>
+        </li>
+        <li class="event__info-item">
+          <h2 class="event__subtitle">where</h2>
+          <p class="event__text event__text--first-string">
+            {{this._embedded.venues.0.city.name}} {{this.place.city.name}}, {{this._embedded.venues.0.country.name}}
+            {{this.place.area.name}}
+          </p>
+          <p class="event__text">
+            {{this._embedded.venues.0.name}}
+          </p>
+        </li>
+        <li class="event__info-item">
+          <h2 class="event__subtitle">who</h2>
+          <p class="event__text">
+            {{this.name}}
+          </p>
+        </li>
+        <li class="event__info-item">
+          <h2 class="event__subtitle">prices</h2>
+          {{#each this.priceRanges}}
+          <p class="event__text event__text-icon">
+            {{this.type}} {{this.min}} - {{this.max}}
+            {{this.currency}}
+          </p>
+          {{/each}}
+        </li>
+      </ul>
+      <a href="{{this.url}}" class="event__link button" rel="noopener noreferrer nofollow" target="_blank">
+        buy tickets</a>
+        <a href="{{this.url}}" class="event__link button" rel="noopener noreferrer nofollow" target="_blank">
+          buy tickets</a>
+    </div>
+  </div>
+  {{!-- <button class="modal__btn-more button">more from this author</button> --}}
+</article>
