@@ -32,9 +32,14 @@ function onInputChange(e) {
     });
 }
 
+
+// async function fetchEvents(keyword = "", countryCode = "") {
+//   const response = await fetch(
+
 function fetchEvents(keyword = "", countryCode = "") {
   spinner.loading();
   return fetch(
     `${BASE_URL}?keyword=${keyword}&countryCode=${countryCode}&apikey=${API_KEY}`
-  ).then((response) => response.json());
+  );
+  return await response.json();
 }

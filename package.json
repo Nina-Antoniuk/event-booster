@@ -27,6 +27,9 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
     "simple-notify": "^0.5.4"
+
   }
 }
