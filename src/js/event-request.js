@@ -3,6 +3,7 @@ import refs from "./refs";
 import { pager } from "./pagination";
 import renderGalleryMarkup from "./rendergallery";
 import { showNotification, closeNotification } from "./notification";
+import { spinner } from "./spinner";
 
 refs.searchForm.addEventListener("submit", onInputChange);
 
@@ -11,6 +12,7 @@ function onInputChange(e) {
 
   return fetchEvents(refs.customerInput.value, refs.chooseCountry.value)
     .then((data) => {
+      spinner.loaded();
       return {
         page: data.page,
         events: data._embedded.events,
@@ -30,8 +32,13 @@ function onInputChange(e) {
     });
 }
 
-async function fetchEvents(keyword = "", countryCode = "") {
-  const response = await fetch(
+
+// async function fetchEvents(keyword = "", countryCode = "") {
+//   const response = await fetch(
+
+function fetchEvents(keyword = "", countryCode = "") {
+  spinner.loading();
+  return fetch(
     `${BASE_URL}?keyword=${keyword}&countryCode=${countryCode}&apikey=${API_KEY}`
   );
   return await response.json();
