@@ -9,7 +9,7 @@
       AROUND THE WORLD
     </h1>
     <form class="search-form" id="search-form-js">
-      <div class="input">
+      <div class="form-field">
         <input
           id="customer-input-js"
           class="input-search"
@@ -17,25 +17,37 @@
           name="search"
           autocomplete="off"
           placeholder="Start searching"
+          disabled
         />
-        <button class="search-btn" type="button">
+        <button class="search-btn" type="submit">
           <svg class="input-icon">
             <use href="./images/svg/sprits.svg#icon-search"></use>
           </svg>
         </button>
       </div>
-      <!-- <div class="input choose-country-js">
-        <select id="country-select-js" class="input-search select" type="text">
-          <option class="select__item" value="">Choose country</option>
-        </select>
-        <button class=" search-btn" type="button">
-            <svg class="input-icon" id="country-select-svg">
-              <use href="./images/svg/sprits.svg#icon-select"></use>
-            </svg>
-        </button> -->
 
-      <div class="input">
-        <div id="select"></div>
+      <div id="select-country" class="form-field select">
+        <input 
+          id="select" 
+          class="input-search" 
+          autocomplete="off" 
+          placeholder="Choose country..." 
+          value="" 
+          data-code=""
+          disabled>
+        <button class="search-btn" type="button">
+          <svg class="input-icon" id="country-select-svg">
+            <use href="./images/svg/sprits.svg#icon-select-down"></use>
+          </svg>
+        </button>
+        <div class="select__dropdown">
+          <button class="close-dropdown" type="button">
+            <svg class="input-icon" id="close-select-svg">
+              <use href="./images/svg/sprits.svg#icon-select-up"></use>
+            </svg>
+          </button>
+          <div class="countries-list country-select-js"></div>
+        </div>
       </div>
     </form>
   </div>

@@ -88,11 +88,11 @@
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    align-items: start; //
+    align-items: start;
   }
 }
 
-.input {
+.form-field {
   position: relative;
   margin-bottom: 25px;
 
@@ -106,6 +106,7 @@
 }
 
 .input-search {
+  display: block;
   width: 270px;
   height: 40px;
   margin-left: auto;
@@ -150,93 +151,82 @@
   &:focus {
     outline-offset: 3px;
   }
-}
 
-.input-icon {
-  width: 12px;
-  height: 12px;
-  transition: fill 0.1s linear;
+  & .input-icon {
+    display: block;
+    width: 12px;
+    height: 12px;
+    transition: fill 0.1s linear;
+  }
 }
+.close-dropdown {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 
-// Plugin Select
+  & .input-icon {
+    display: block;
+    width: 12px;
+    height: 12px;
+    transition: fill 0.1s linear;
+  }
+}
 
 .select {
-  width: 100%;
-  position: relative;
+  &__dropdown {
+    display: none;
+    position: absolute;
+    padding-left: 0px;
+    left: 0;
+    right: 0;
+    height: 210px;
+    overflow: hidden;
+    border-radius: 0px 0px 20px 20px;
+  }
 
   &.open {
     .select__dropdown {
       display: block;
       position: absolute;
-      top: 100%;
+      top: 0;
       left: 0;
       z-index: 900;
+      padding: 0;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
     }
-
-    .select__input {
-      border-bottom: none;
-    }
   }
 
-  &__input {
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 25px;
-  }
+  // &__input {
+  //   position: relative;
+  //   display: flex;
+  //   justify-content: space-around;
+  //   align-items: center;
+  //   cursor: pointer;
+  //   border-radius: 25px;
+  // }
 
-  .open &__input {
-    border-radius: 25px 25px 0 0;
-  }
+  // .open &__input {
+  //   border-radius: 25px 25px 0 0;
+  // }
 
-  .open &__input::after {
-    content: "";
-    position: absolute;
-    left: 25px;
-    right: 25px;
-    bottom: 0px;
-    height: 1px;
-    background: var(--blurry-text-color);
-  }
-
-  &__dropdown {
-    display: none;
-    position: absolute;
-    padding-top: 5px;
-    padding-left: 0px;
-    left: 0;
-    right: 0;
-    height: 210px;
-    overflow-y: auto;
-    border-radius: 0px 0px 25px 25px;
-  }
-
-  &__dropdown::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  &__dropdown::-webkit-scrollbar-track {
-    border-width: 0;
-    background-color: var(--bg-input);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-  }
-
-  &__dropdown::-webkit-scrollbar-thumb {
-    border-width: 1px 1px 1px 2px;
-    background: var(--blurry-text-color);
-    border-radius: 20px;
-
-    background-image: url(../images/scroll.png);
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  &__dropdown::-webkit-scrollbar-thumb:hover {
-    background: var(--blurry-text-color);
-  }
+  // .open &__input::after {
+  //   content: "";
+  //   position: absolute;
+  //   left: 25px;
+  //   right: 25px;
+  //   bottom: 0px;
+  //   height: 1px;
+  //   background: var(--blurry-text-color);
+  // }
 
   &__list {
     padding: 0;
@@ -250,8 +240,8 @@
     height: 25px;
     padding-left: 30px;
     align-items: center;
-    background-color: var(--bg-input);
-    color: var(--blurry-text-color);
+    background-color: transparent;
+    color: #ccc;
     border: 0;
 
     &.selected {
@@ -267,8 +257,43 @@
   }
 }
 
-// .countries-list__item-radio {
-//   position: absolute;
-//   width: 0;
-//   height: 0;
-// }
+.countries-list {
+  height: 100%;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::before {
+    content: "Choose country";
+    display: block;
+    width: 80%;
+    margin-left: 30px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #939393;
+    color: #939393;
+    padding: 15px 0 10px;
+  }
+
+  // &::-webkit-scrollbar-track {
+  //   border-width: 0;
+  //   background-color: var(--bg-input);
+  //   -webkit-backdrop-filter: blur(20px);
+  //   backdrop-filter: blur(20px);
+  // }
+
+  // &::-webkit-scrollbar-thumb {
+  //   border-width: 1px 1px 1px 2px;
+  //   background: var(--blurry-text-color);
+  //   border-radius: 20px;
+
+  //   background-image: url(../images/scroll.png);
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  // }
+
+  // &::-webkit-scrollbar-thumb:hover {
+  //   background: var(--blurry-text-color);
+  // }
+}

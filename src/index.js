@@ -7,10 +7,11 @@ import "./js/select";
 import "./js/get-countries";
 import "./js/auth.js";
 import "./js/event-request";
-import "./js/modal";
+import "./js/button-up";
 import { pager } from "./js/pagination";
 import sprits from "./images/svg/sprits.svg";
 import "./js/footer-modal.js";
+import "./js/modal";
 
 window.addEventListener("DOMContentLoaded", onPageLoad);
 

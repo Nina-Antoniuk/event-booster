@@ -14,7 +14,10 @@ const refs = {
 
   searchForm: document.querySelector("#search-form-js"),
   customerInput: document.querySelector("#customer-input-js"),
-  chooseCountry: document.querySelector("#country-select-js"),
+  selectField: document.querySelector('#select-country'),
+  selectCountry: document.querySelector('#select'),
+  chooseCountry: document.querySelector(".country-select-js"),
+  closeDropdown: document.querySelector('.close-dropdown'),
   chooseCountrySvg: document.querySelector("#country-select-svg"),
 
   galleryList: document.querySelector(".gallery"),

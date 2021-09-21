@@ -5,12 +5,43 @@ import renderGalleryMarkup from "./rendergallery";
 import { showNotification, closeNotification } from "./notification";
 import { spinner } from "./spinner";
 
-refs.searchForm.addEventListener("submit", onInputChange);
+refs.searchForm.addEventListener('click', checkAuth);
+refs.searchForm.addEventListener("submit", request);
+refs.selectField.addEventListener('click', openBackdrop);
+refs.closeDropdown.addEventListener('click', closeBackdrop);
+refs.chooseCountry.addEventListener('click', changeCountry)
 
-function onInputChange(e) {
+function checkAuth() {
+  if (refs.customerInput.disabled && refs.selectCountry.disabled) {
+    showNotification('warning', 'Attention', 'You need to log in to search for events');
+    setTimeout(closeNotification, 2500);
+    return
+  } 
+}
+
+function openBackdrop() {
+  if (refs.selectCountry.disabled) {
+    return 
+  }
+  refs.selectField.classList.add('open');
+}
+
+function closeBackdrop(e) {
+  e.stopImmediatePropagation()
+  refs.selectField.classList.remove('open');
+}
+
+function changeCountry(e) {
+  refs.selectCountry.value = e.target.value;
+  refs.selectCountry.dataset.code = e.target.dataset.id;
+  closeBackdrop(e);
+}
+
+
+function request(e) {
   e.preventDefault();
 
-  return fetchEvents(refs.customerInput.value, refs.chooseCountry.value)
+  return fetchEvents(refs.customerInput.value, refs.selectCountry.dataset.code)
     .then((data) => {
       spinner.loaded();
       return {
@@ -27,7 +58,7 @@ function onInputChange(e) {
       return renderGalleryMarkup(data.events);
     })
     .catch((err) => {
-      showNotification("error", "Something went wrong", "Try again");
+      showNotification("error", "No matches was found", "Try again");
       setTimeout(closeNotification, 2500);
     });
 }

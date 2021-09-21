@@ -1,53 +1,39 @@
 import { countries } from "./countries";
-import { Select } from "./select";
+import refs from './refs';
+// import { Select } from "./select";
 
-// openCountriesList();
+createCountriesList();
 
-// function openCountriesList() {
-//   return refs.chooseCountry.insertAdjacentHTML(
-//     "beforeend",
-//     createOptionsMarkup()
-//   );
-// }
+function createCountriesList() {
+  return refs.chooseCountry.insertAdjacentHTML(
+    "beforeend",
+    createSelectMarkup()
+  );
+}
+createCountriesList()
+function createSelectMarkup() {
+  const countriesSort = countries.sort((a, b) => (a.name > b.name ? 1 : -1));
+  return countriesSort
+    .map((country) => {
+      return createItemMarkup(country);
+    })
+    .join("");
+}
 
-// function createOptionsMarkup() {
-//   const countriesSort = countries.sort((a, b) => (a.name > b.name ? 1 : -1));
-//   return countriesSort
-//     .map((country) => {
-//       return createItemMarkup(country);
-//     })
-//     .join("");
-// }
 
-// function createItemMarkup(country) {
-//   return `<option value="${country.countryCode}">${country.name}</option>`;
-// }
+function createItemMarkup(country) {
+  return `<button type="button"
+            class="select__item"
+            data-type="item"
+            data-id="${country.countryCode}"
+            value="${country.name}">
+            ${country.name}
+          </button>`;
+}
 
-// function openCountriesList() {
-//   return refs.chooseCountry.insertAdjacentHTML('beforeend', createOptionsMarkup())
-// }
 
-// function createOptionsMarkup() {
-//   const countriesSort = countries.sort((a, b) => (a.name > b.name) ? 1 : -1)
-//   return countriesSort.map(country => {
-//     return createMarkup(country)
-//   }).join('');
-// }
 
-// function createMarkup(country) {
-//   return `<option value="${country.countryCode}">${country.name}</option>`
-// }
-
-// for (let key of countriesSort) {
-//   let countryOption = document.createElement('option');
-//   let countrySelect = document.getElementById('countrySelect');
-
-//   countryOption.innerHTML = key.name;
-//   // countrySelect.appendChild(countryOption);
-
-// }
-
-const select = new Select("#select", {
-  placeholder: "Choose country",
-  data: countries,
-});
+// const select = new Select("#select", {
+//   placeholder: "Choose country",
+//   data: countries,
+// });
