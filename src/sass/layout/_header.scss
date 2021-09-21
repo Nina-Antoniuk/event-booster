@@ -11,6 +11,9 @@
     padding-bottom: 135px;
   }
 }
+.header-container {
+  padding-top: 40px;
+}
 
 .header::before {
   content: "";
@@ -204,29 +207,6 @@
       backdrop-filter: blur(20px);
     }
   }
-
-  // &__input {
-  //   position: relative;
-  //   display: flex;
-  //   justify-content: space-around;
-  //   align-items: center;
-  //   cursor: pointer;
-  //   border-radius: 25px;
-  // }
-
-  // .open &__input {
-  //   border-radius: 25px 25px 0 0;
-  // }
-
-  // .open &__input::after {
-  //   content: "";
-  //   position: absolute;
-  //   left: 25px;
-  //   right: 25px;
-  //   bottom: 0px;
-  //   height: 1px;
-  //   background: var(--blurry-text-color);
-  // }
 
   &__list {
     padding: 0;

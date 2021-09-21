@@ -1,7 +1,3 @@
-@import "./layout/section-pagination";
-@import "./layout/gallery";
-@import "./layout/header";
-
 // utils
 @import "./utils/variables";
 
@@ -11,18 +7,17 @@
 @import "./base/scroll";
 
 // components
-
 @import "./components/body-bg";
 @import "./components/logo";
 @import "./components/auth";
 @import "./components/spinner";
 @import "./components/pagination";
-@import "./components/footer";
-@import "./components/spinner";
 @import "./components/button-up";
-@import "./components/modal";
 @import "./components/modal-event";
+@import "./components/modal";
 
 // layout
 @import "./layout/header";
+@import "./layout/gallery";
 @import "./layout/section-pagination";
+@import "./layout/footer";

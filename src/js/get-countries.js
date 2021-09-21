@@ -1,6 +1,5 @@
 import { countries } from "./countries";
 import refs from './refs';
-// import { Select } from "./select";
 
 createCountriesList();
 
@@ -31,9 +30,3 @@ function createItemMarkup(country) {
           </button>`;
 }
 
-
-
-// const select = new Select("#select", {
-//   placeholder: "Choose country",
-//   data: countries,
-// });

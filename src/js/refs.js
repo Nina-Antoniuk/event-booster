@@ -24,9 +24,7 @@ const refs = {
 
   eventsContainer: document.querySelector(".js-events-container"),
   body: document.querySelector("body"),
-  // eventsItem: document.querySelector(".gallery"),
   modalOverlay: document.querySelector(".js-modal"),
-  modalCloseBtn: document.querySelector('button[data-action="close-modal"]'),
   event: document.querySelector(".events__image"),
   eventCard: document.querySelector(".events__link"),
   modal: document.querySelector(".modal"),
