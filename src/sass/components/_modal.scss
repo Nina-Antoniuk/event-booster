@@ -5,11 +5,6 @@ div.modal-overlay {
   visibility: hidden;
   transition: opacity 300ms linear;
 
-  & .modal {
-    pointer-events: none;
-    visibility: hidden;
-  }
-
   &.is-open {
     position: fixed;
     top: 0;
@@ -31,6 +26,11 @@ div.modal-overlay {
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
     transition: opacity 250ms linear;
+  }
+
+  & .modal {
+    pointer-events: none;
+    visibility: hidden;
   }
 
   &.is-open .modal {
@@ -248,20 +248,21 @@ div.modal-overlay {
 }
 
 .modal__btn-more {
-  text-align: center;
-  padding: 10px 0;
   display: block;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
   margin-top: 5px;
   margin-bottom: 110px;
+  padding: 10px 0;
+  text-align: center;
   font-size: 16px;
   line-height: 20px;
   text-transform: uppercase;
   border: solid 1px #4c00fe;
   background-color: transparent;
   color: #4c00fe;
+  cursor: pointer;
   transition: border-color 200ms varcubic-bezier(0.4, 0, 0.2, 1),
     transform 200ms varcubic-bezier(0.4, 0, 0.2, 1),
     color 200ms varcubic-bezier(0.4, 0, 0.2, 1);
@@ -279,6 +280,7 @@ div.modal-overlay {
     border-color: #4c00fe;
   }
 }
+
 .modal__btn-more:hover {
   transform: scale(1.25);
   color: #dc56c5;

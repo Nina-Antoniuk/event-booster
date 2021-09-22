@@ -1,8 +1,8 @@
-import fetchEventById from "./events-service";
-import modalEventTpl from "../templates/modalEventTpl";
 import refs from "./refs";
+import fetchEventById from "./events-service";
+import loadMoreEvents from './load-more-events';
+import modalEventTpl from "../templates/modalEventTpl";
 import { showNotification, closeNotification } from './notification';
-
 
 refs.galleryList.addEventListener("click", onEventClick);
 
@@ -15,9 +15,9 @@ function onEventClick(e) {
   }
   fetchEventById(e.target.dataset.id)
     .then(event => {
-      console.log('click on gallery item');
-      // const eventName = [...event.map(el => el.name)]
-      // refs.loadMoreBtn.dataset.name = eventName
+      const eventName = [...event.map(el => el.name)]
+      refs.loadMoreBtn.dataset.name = eventName
+      refs.loadMoreBtn.addEventListener("click", loadMoreEvents);
       renderMarkupInModal(event)
     })
     .catch(err => {
@@ -42,6 +42,7 @@ function onModalCloseBtn() {
   refs.body.classList.remove("hidden");
 
   refs.modalOverlay.removeEventListener("click", onModalCloseBtn);
+  refs.loadMoreBtn.dataset.name = ""
   refs.modalContainer.innerHTML = "";
   // очистка контейнера, чтобы карточка исчезала при закрытии окна
 }

@@ -1,8 +1,6 @@
 import refs from "./refs";
 import sprits from "../images/svg/sprits.svg";
 
-// refs.galleryList.addEventListener('click', searchCardsLinks)
-
 
 export default function renderGalleryMarkup(events) {
   refs.galleryList.innerHTML = createGalleryMarkup(events);
