@@ -5,6 +5,7 @@
   padding: 8px 10px;
   color: var(--light-text-color);
   transition: background-color ease var(--duration);
+  cursor: pointer;
   & .auth-icon,
   & .signin-icon {
     display: block;

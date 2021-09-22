@@ -13,12 +13,9 @@
 <symbol id="icon-select-down" viewBox="0 0 32 32">
 <path fill="#939393" style="fill: var(--color3, #939393)" d="M16 25.846l-15.988-18.462h31.976l-15.988 18.462z"></path>
 </symbol>
-
 <symbol id="icon-select-up" viewBox="0 0 13 8">
 <path d="M6.5 0L12.9952 7.5L0.00480938 7.5L6.5 0Z" fill="#939393"/>
 </symbol>
-
-
 <symbol id="icon-ticket" viewBox="0 0 32 32">
 <path d="M3.556 5.333h-3.556v21.333h3.556v-21.333z"></path>
 <path d="M12.498 5.333h-3.556v21.333h3.556v-21.333z"></path>

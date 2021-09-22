@@ -1,23 +1,23 @@
-// Импорт класса и шаблона
 import fetchEventById from "./events-service";
 import modalEventTpl from "../templates/modalEventTpl";
 import refs from "./refs";
 import { showNotification, closeNotification } from './notification';
 
-// const modalEventService = new EventService();
 
 refs.galleryList.addEventListener("click", onEventClick);
 
 // открытие модального окна при клике на элемент галереи
 
 function onEventClick(e) {
-  e.preventDefault();//?
+  e.preventDefault();
   if (e.target.nodeName !== "LI") {
     return 
   }
   fetchEventById(e.target.dataset.id)
     .then(event => {
-      console.log(event);
+      console.log('click on gallery item');
+      // const eventName = [...event.map(el => el.name)]
+      // refs.loadMoreBtn.dataset.name = eventName
       renderMarkupInModal(event)
     })
     .catch(err => {

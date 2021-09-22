@@ -1,6 +1,6 @@
 <article class="event">
   <div class="modal-preview">
-    <img class="event__img--circle" src="{{ this.images.[1].url}}" alt="Event poster">
+    <img class="img event__img--circle" src="{{ this.images.[1].url}}" alt="Event poster">
   </div>
   <div class="event-wrap">
     <div class="event__img-wrap">
@@ -46,16 +46,18 @@
           <h2 class="event__subtitle">prices</h2>
           {{#each this.priceRanges}}
           <p class="event__text event__text-icon">
-            {{this.type}} {{this.min}} - {{this.max}}
-            {{this.currency}}
+            Standart {{this.min}} {{this.currency}}
           </p>
+          <a href="{{this.url}}" class="event__link button" rel="noopener noreferrer nofollow" target="_blank">
+            buy tickets</a>
+          <p class="event__text event__text-icon">
+            VIP {{this.max}} {{this.currency}}
+          </p>
+          <a href="{{this.url}}" class="event__link button" rel="noopener noreferrer nofollow" target="_blank">
+            buy tickets</a>
           {{/each}}
         </li>
       </ul>
-      <a href="{{this.url}}" class="event__link button" rel="noopener noreferrer nofollow" target="_blank">
-        buy tickets</a>
-      <a href="{{this.url}}" class="event__link button" rel="noopener noreferrer nofollow" target="_blank">
-        buy tickets</a>
     </div>
   </div>
 </article>

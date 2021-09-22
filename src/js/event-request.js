@@ -52,14 +52,15 @@ function request(e) {
     .then((data) => {
       pager.letsGo({
         keyword: refs.customerInput.value,
-        countryCode: refs.chooseCountry.value,
+        countryCode: refs.selectCountry.value,
         pages: data.page.totalPages,
       });
       return renderGalleryMarkup(data.events);
     })
     .catch((err) => {
-      showNotification("error", "No matches was found", "Try again");
       setTimeout(closeNotification, 2500);
+      showNotification("error", "No matches was found", "Try again");
+      spinner.loaded();
     });
 }
 

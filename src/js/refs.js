@@ -34,6 +34,7 @@ const refs = {
   buttonUp: document.querySelector("#buttonScrollUp"),
   footerSection: document.querySelector(".footer__section"),
   footerModal: document.querySelector(".footer__modal"),
+  loadMoreBtn: document.querySelector(".modal__btn-more"),
 };
 
 export default refs;

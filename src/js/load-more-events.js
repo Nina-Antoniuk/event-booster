@@ -1,12 +1,12 @@
 import aFetchApi from "./asynawait-fetch-api";
+import refs from './refs';
 
-document
-  .querySelector(".modal__btn-more")
-  .addEventListener("click", loadMoreEvents);
+
+refs.loadMoreBtn.addEventListener("click", loadMoreEvents);
 
 async function loadMoreEvents(e) {
   e.preventDefault();
   this.disabled = true;
-  this.closest(".backdrop").classList.remove("open");
+  this.closest(".backdrop").classList.remove("open"); //modal-overlay?
   await aFetchApi(this.dataset.name, "");
 }
