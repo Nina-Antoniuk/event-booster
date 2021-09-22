@@ -16,7 +16,7 @@ export default function fetchApi() {
       showNotification(
         "error",
         "Please try again!",
-        "Oops, somethink went wrong"
+        error
       );
       setTimeout(closeNotification, 2000);
     });
