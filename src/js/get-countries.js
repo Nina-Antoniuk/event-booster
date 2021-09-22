@@ -9,14 +9,12 @@ function createCountriesList() {
     createSelectMarkup()
   );
 }
-createCountriesList()
+
 function createSelectMarkup() {
   const countriesSort = countries.sort((a, b) => (a.name > b.name ? 1 : -1));
-  return countriesSort
-    .map((country) => {
+  return countriesSort.map((country) => {
       return createItemMarkup(country);
-    })
-    .join("");
+    }).join("");
 }
 
 
@@ -25,7 +23,7 @@ function createItemMarkup(country) {
             class="select__item"
             data-type="item"
             data-id="${country.countryCode}"
-            value="${country.name}">
+            data-value="${country.name}">
             ${country.name}
           </button>`;
 }

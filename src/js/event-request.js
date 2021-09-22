@@ -32,8 +32,9 @@ function closeBackdrop(e) {
 }
 
 function changeCountry(e) {
-  refs.selectCountry.value = e.target.value;
+  refs.selectCountry.value = e.target.dataset.value;
   refs.selectCountry.dataset.code = e.target.dataset.id;
+  console.log(refs.selectCountry.dataset.value);
   closeBackdrop(e);
 }
 
@@ -52,7 +53,7 @@ function request(e) {
     .then((data) => {
       pager.letsGo({
         keyword: refs.customerInput.value,
-        countryCode: refs.selectCountry.value,
+        countryCode: refs.selectCountry.dataset.code,
         pages: data.page.totalPages,
       });
       return renderGalleryMarkup(data.events);
