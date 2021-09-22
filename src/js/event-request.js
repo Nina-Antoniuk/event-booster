@@ -32,8 +32,9 @@ function closeBackdrop(e) {
 }
 
 function changeCountry(e) {
-  refs.selectCountry.dataset.value = e.target.value;
+  refs.selectCountry.value = e.target.dataset.value;
   refs.selectCountry.dataset.code = e.target.dataset.id;
+  console.log(refs.selectCountry.dataset.value);
   closeBackdrop(e);
 }
 
